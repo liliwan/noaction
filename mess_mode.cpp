@@ -268,7 +268,7 @@ bool mess_mode::mousePressEvent(QMouseEvent* event)
 
 void mess_mode::arrangeScene()
 {
-	m_scene->arrangeScene(m_widget->loadArrangeName());
+	m_scene->arrangeSceneByRandom(m_widget->loadArrangeName());
 	m_scene->setSceneDrawArea(drawArea());
 
 	// set viewer

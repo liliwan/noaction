@@ -946,6 +946,7 @@ void CModel::TransformVertices(const MathLib::Vector3 &newLocation)
 	Surface_mesh::Vertex_property<Surface_mesh::Vector3> points = m_mesh->vertex_property<Surface_mesh::Vector3>("v:point");
 	Surface_mesh::Vertex_iterator vit, vend = m_mesh->vertices_end();
 
+	// compute transform matrix
 	MathLib::Vector3 translationVec = newLocation - m_currentLocation;
 	Eigen::Affine3d tempTransform(Eigen::Translation3d(Eigen::Vector3d(translationVec.x, translationVec.y, translationVec.z)));
 	Eigen::Matrix4d transMat = tempTransform.matrix();

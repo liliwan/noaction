@@ -98,14 +98,16 @@ public:
 	bool isModelFixed(int modelID) {return m_modelList[modelID]->isFixed(); };
 	void setCenterModelID(int id) { m_centerModelID = id; };
 	//--wll
-	void arrangeScene(const QString filename); 
+	void arrangeSceneByRandom(const QString filename); 
 	void collectSuppPlanes(); 
 	void addSuppPlanes(int mID);
 	int selectSuppPlaneByRandom();
 	int selectSuppPlaneByRandom(int mID);
-	MathLib::Vector3 selectSuppLocationByRandom();
-	MathLib::Vector3 selectSuppLocationByRandom(int mId);
-	MathLib::Vector3 selectLocOnSuppPlaneByRandom(int planeID);
+	MathLib::Vector3 selectLocOnSuppPlaneByRandom(int planeID); // on a specified support plane
+
+	MathLib::Vector3 selectSuppLocationByRandom(); // in a scene
+	MathLib::Vector3 selectSuppLocationByRandom(int mId); // on a specified object
+	bool testAvailableForNewLocation(int mId, const MathLib::Vector3 &newLocation);
 	//----------------------------
 
 	// select interaction

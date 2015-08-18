@@ -1141,7 +1141,7 @@ int CScene::doSymmetryConnection(ConnType ct, bool bCompSCG)
 }
 */
 
-void CScene::arrangeScene(const QString filename)
+void CScene::arrangeSceneByRandom(const QString filename)
 {
 	QFile inFile(filename);
 	QTextStream ifs(&inFile);
@@ -1205,14 +1205,18 @@ void CScene::arrangeScene(const QString filename)
 
 		// where to place
 		MathLib::Vector3 newLocation(0, 0, 0);
-		newLocation = selectSuppLocationByRandom(2); //selectSuppLocationByRandom();
-		m_modelList[m_modelNum + i - 1]->TransformVertices(newLocation);
+		newLocation = selectSuppLocationByRandom(); // selectSuppLocationByRandom(2); 
+		if (testAvailableForNewLocation(m_modelNum + i - 1, newLocation))
+		{
+			m_modelList[m_modelNum + i - 1]->TransformVertices(newLocation);
 
-		// update
-		m_modelList[m_modelNum + i - 1]->updateOBB(2);
-		m_modelList[m_modelNum + i - 1]->updateCurrentLocation();
-		m_modelList[m_modelNum + i - 1]->buildSuppPlane();
-		addSuppPlanes(m_modelNum + i - 1);
+			// update
+			m_modelList[m_modelNum + i - 1]->updateOBB(2);
+			m_modelList[m_modelNum + i - 1]->updateCurrentLocation();
+			m_modelList[m_modelNum + i - 1]->buildSuppPlane();
+			addSuppPlanes(m_modelNum + i - 1);
+		}
+
 
 		m_modelNameIdMap[modelName] = m_modelNum + i - 1;
 	}
@@ -1391,6 +1395,18 @@ MathLib::Vector3 CScene::selectSuppLocationByRandom(int mID)
 	planeID = selectSuppPlaneByRandom(mID);
 
 	return selectLocOnSuppPlaneByRandom(planeID);
+
+}
+
+// need to do
+// test for collision at new location, no collision, return true
+// 大概的思路：把要摆放的这个物体的包围盒移动到新的位置，支撑这一物体的supporter上已有一些物体，
+// 然后测试新物体的包围盒与已有物体的包围盒有没有碰撞，如果没有，则说明这个位置可以放。
+// 可使用的函数提示： IntersectOBBOBB,void COBB::Transform(const MathLib::Matrix4d &m)
+// 参考void CModel::TransformVertices(const MathLib::Vector3 &newLocation)中由newlocation得到Transform矩阵的写法
+bool CScene::testAvailableForNewLocation(int mId, const MathLib::Vector3 &newLocation)
+{
+	return true;
 
 }
 
