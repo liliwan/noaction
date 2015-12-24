@@ -1,59 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|x64">
-      <Configuration>Debug</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|Win32">
-      <Configuration>Release</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug|Win32">
-      <Configuration>Debug</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Release|x64">
       <Configuration>Release</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{292121A8-922D-34E8-8181-FCB4A2DD764F}</ProjectGuid>
+    <ProjectGuid>{B3802D02-D3E7-31B6-A493-1768CF1EF290}</ProjectGuid>
     <RootNamespace>scene_mess</RootNamespace>
     <Keyword>Qt4VSv1.0</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <PlatformToolSet>v120</PlatformToolSet>
-    <OutputDirectory>C:\Users\lenovo\Desktop\StarlabPackageRelease\plugins\</OutputDirectory>
-    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
-    <CharacterSet>NotSet</CharacterSet>
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <IntermediateDirectory>release\</IntermediateDirectory>
-    <PrimaryOutput>scene_mess</PrimaryOutput>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <PlatformToolSet>v120</PlatformToolSet>
-    <OutputDirectory>C:\Users\lenovo\Desktop\StarlabPackageRelease\plugins\</OutputDirectory>
+    <OutputDirectory>C:\Users\Administrator\Desktop\StarlabPackageRelease\plugins\</OutputDirectory>
     <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
     <CharacterSet>NotSet</CharacterSet>
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <IntermediateDirectory>release\</IntermediateDirectory>
-    <PrimaryOutput>scene_mess</PrimaryOutput>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <PlatformToolSet>v120</PlatformToolSet>
-    <OutputDirectory>C:\Users\lenovo\Desktop\StarlabPackage\plugins\</OutputDirectory>
-    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
-    <CharacterSet>NotSet</CharacterSet>
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <IntermediateDirectory>debug\</IntermediateDirectory>
     <PrimaryOutput>scene_mess</PrimaryOutput>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <PlatformToolSet>v120</PlatformToolSet>
-    <OutputDirectory>C:\Users\lenovo\Desktop\StarlabPackage\plugins\</OutputDirectory>
+    <OutputDirectory>C:\Users\Administrator\Desktop\StarlabPackage\plugins\</OutputDirectory>
     <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
     <CharacterSet>NotSet</CharacterSet>
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -62,13 +36,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings" />
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
-  </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
@@ -76,95 +44,22 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\lenovo\Desktop\StarlabPackageRelease\plugins\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">scene_mess</TargetName>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Administrator\Desktop\StarlabPackageRelease\plugins\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">scene_mess</TargetName>
-    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</IgnoreImportLibrary>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
-    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</PostBuildEventUseInBuild>
     <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</PostBuildEventUseInBuild>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\lenovo\Desktop\StarlabPackage\plugins\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">scene_mess</TargetName>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Administrator\Desktop\StarlabPackage\plugins</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">scene_mess</TargetName>
-    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</IgnoreImportLibrary>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</IgnoreImportLibrary>
-    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PostBuildEventUseInBuild>
     <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</PostBuildEventUseInBuild>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IntDir>$(Platform)\$(Configuration)\</IntDir>
-    <OutDir>C:\Users\lenovo\Desktop\StarlabPackage\plugins</OutDir>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IntDir>$(Platform)\$(Configuration)\</IntDir>
-  </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <ClCompile>
-      <AdditionalIncludeDirectories>..\starlab-master\starlab\core\starlib;..\starlab-master\starlab\core\starlib\parameters;..\starlab-master\starlab\core\starlib\interfaces;.;..\starlab-master\starlab\core\external\eigen-3.2.1;..\starlab-master\starlab\surfacemesh\surfacemesh;..\starlab-master\starlab\surfacemesh\surfacemesh\helpers;E:\Gruvi\starlab-master\starlab\surfacemesh\surfacemesh\parameters;..\starlab-master\starlab\core\external\cholmod-4.0.0\include;C:\opencv\build\include;$(CGAL_DIR)\include;$(CGAL_DIR)\build\include;$(CGAL_DIR)\auxiliary\gmp\include;D:\boost_1_57_0;$(QTDIR)\include;$(QTDIR)\include\QtOpenGL;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtCore;release;.;$(QTDIR)\mkspecs\win32-msvc2013;.\GeneratedFiles;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>-Zm200 -arch:AVX -w34100 -w34189 %(AdditionalOptions)</AdditionalOptions>
-      <AssemblerListingLocation>release\</AssemblerListingLocation>
-      <BrowseInformation>false</BrowseInformation>
-      <DebugInformationFormat>None</DebugInformationFormat>
-      <ExceptionHandling>Sync</ExceptionHandling>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <ObjectFileName>$(IntDir)</ObjectFileName>
-      <OpenMPSupport>true</OpenMPSupport>
-      <Optimization>MaxSpeed</Optimization>
-      <PreprocessKeepComments>true</PreprocessKeepComments>
-      <PreprocessorDefinitions>;_WINDOWS;UNICODE;WIN32;EIGEN;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CHOLMOD;CGAL_CFG_NO_CPP0X_VARIADIC_TEMPLATES;CGAL_CFG_NO_NEXTAFTER;CGAL_CFG_NO_TR1_ARRAY;CGAL_CFG_NO_TR1_TUPLE;QT_NO_DEBUG;QT_PLUGIN;QT_OPENGL_LIB;QT_WIDGETS_LIB;QT_XML_LIB;QT_GUI_LIB;QT_CORE_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PreprocessToFile>false</PreprocessToFile>
-      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <WarningLevel>Level3</WarningLevel>
-    </ClCompile>
-    <Link>
-      <AdditionalDependencies>glu32.lib;opengl32.lib;gdi32.lib;user32.lib;C:\Users\lenovo/Desktop/StarlabPackageRelease/starlib.lib;C:\Users\lenovo\Desktop\StarlabPackageRelease\surfacemesh.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libopenblas.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\SuiteSparse_config.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libcholmod.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libmetis.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libamd.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libcamd.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libcolamd.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libccolamd.lib;C:\opencv\build\x64\vc12\lib\opencv_core249.lib;C:\opencv\build\x64\vc12\lib\opencv_highgui249.lib;C:\opencv\build\x64\vc12\lib\opencv_features2d249.lib;C:\opencv\build\x64\vc12\lib\opencv_flann249.lib;C:\opencv\build\x64\vc12\lib\opencv_imgproc249.lib;C:\opencv\build\x64\vc12\lib\opencv_video249.lib;d:\CGAL-4.5\build\lib\CGAL-vc120-mt-gd-4.5.lib;d:\CGAL-4.5\build\lib\CGAL-vc120-mt-4.5.lib;d:\CGAL-4.5\build\lib\CGAL_Core-vc120-mt-gd-4.5.lib;d:\CGAL-4.5\build\lib\CGAL_Core-vc120-mt-4.5.lib;d:\CGAL-4.5\auxiliary\gmp\lib\libgmp-10.lib;$(QTDIR)\lib\Qt5OpenGL.lib;$(QTDIR)\lib\Qt5Widgets.lib;$(QTDIR)\lib\Qt5Xml.lib;$(QTDIR)\lib\Qt5Gui.lib;$(QTDIR)\lib\Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(QTDIR)\lib;C:\Users\lenovo\Desktop\StarlabPackageRelease;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64;C:\opencv\build\x64\vc12\lib;d:\CGAL-4.5\build\lib;d:\CGAL-4.5\auxiliary\gmp\lib;D:\boost_1_57_0\lib64-msvc-12.0;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <DataExecutionPrevention>true</DataExecutionPrevention>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
-      <IgnoreImportLibrary>true</IgnoreImportLibrary>
-      <LinkDLL>true</LinkDLL>
-      <LinkIncremental>false</LinkIncremental>
-      <OutputFile>$(OutDir)\scene_mess.dll</OutputFile>
-      <RandomizedBaseAddress>true</RandomizedBaseAddress>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-    </Link>
-    <Midl>
-      <DefaultCharType>Unsigned</DefaultCharType>
-      <EnableErrorChecks>None</EnableErrorChecks>
-      <WarningLevel>0</WarningLevel>
-    </Midl>
-    <ResourceCompile>
-      <PreprocessorDefinitions>;_WINDOWS;UNICODE;WIN32;EIGEN;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CHOLMOD;CGAL_CFG_NO_CPP0X_VARIADIC_TEMPLATES;CGAL_CFG_NO_NEXTAFTER;CGAL_CFG_NO_TR1_ARRAY;CGAL_CFG_NO_TR1_TUPLE;QT_NO_DEBUG;QT_PLUGIN;QT_OPENGL_LIB;QT_WIDGETS_LIB;QT_XML_LIB;QT_GUI_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ResourceCompile>
-    <PostBuildEvent>
-      <Command>cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libopenblas.dll C:\Users\lenovo\Desktop\StarlabPackageRelease
-if errorlevel 1 goto VCEnd
- cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libgfortran-3.dll C:\Users\lenovo\Desktop\StarlabPackageRelease
-if errorlevel 1 goto VCEnd
- cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libquadmath-0.dll C:\Users\lenovo\Desktop\StarlabPackageRelease
-if errorlevel 1 goto VCEnd
- cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libgcc_s_sjlj-1.dll C:\Users\lenovo\Desktop\StarlabPackageRelease
-if errorlevel 1 goto VCEnd
-</Command>
-      <Message>cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libopenblas.dll C:\Users\lenovo\Desktop\StarlabPackageRelease
- cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libgfortran-3.dll C:\Users\lenovo\Desktop\StarlabPackageRelease
- cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libquadmath-0.dll C:\Users\lenovo\Desktop\StarlabPackageRelease
- cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libgcc_s_sjlj-1.dll C:\Users\lenovo\Desktop\StarlabPackageRelease
-</Message>
-    </PostBuildEvent>
-  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\starlab-master\starlab\core\starlib;..\starlab-master\starlab\core\starlib\parameters;..\starlab-master\starlab\core\starlib\interfaces;.;..\starlab-master\starlab\core\external\eigen-3.2.1;..\starlab-master\starlab\surfacemesh\surfacemesh;..\starlab-master\starlab\surfacemesh\surfacemesh\helpers;E:\Gruvi\starlab-master\starlab\surfacemesh\surfacemesh\parameters;..\starlab-master\starlab\core\external\cholmod-4.0.0\include;C:\opencv\build\include;$(CGAL_DIR)\include;$(CGAL_DIR)\build\include;$(CGAL_DIR)\auxiliary\gmp\include;D:\boost_1_57_0;$(QTDIR)\include;$(QTDIR)\include\QtOpenGL;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtCore;release;.;$(QTDIR)\mkspecs\win32-msvc2013;.\GeneratedFiles;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>-Zm200 -arch:AVX -w34100 -w34189 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>.;C:\Users\Administrator\Desktop\starlab\core\starlib;C:\Users\Administrator\Desktop\starlab\core\starlib\parameters;C:\Users\Administrator\Desktop\starlab\core\starlib\interfaces;.;C:\Users\Administrator\Desktop\starlab\core\external\eigen-3.2.1;C:\Users\Administrator\Desktop\starlab\surfacemesh\surfacemesh;C:\Users\Administrator\Desktop\starlab\surfacemesh\surfacemesh\helpers;C:\Users\Administrator\Desktop\starlab\surfacemesh\surfacemesh\parameters;C:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\include;$(CGAL_DIR)\include;$(CGAL_DIR)\build\include;$(CGAL_DIR)\auxiliary\gmp\include;D:\boost_1_57_0\boost_1_57_0;..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include;..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtOpenGL;..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtWidgets;..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtGui;..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtXml;..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtCore;release;.;..\qt\qt5.4.1\5.4\msvc2013_64_opengl\mkspecs\win32-msvc2013;.\GeneratedFiles;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zm200 -arch:AVX -Zc:strictStrings -w34100 -w34189 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>release\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
       <DebugInformationFormat>None</DebugInformationFormat>
@@ -174,7 +69,7 @@ if errorlevel 1 goto VCEnd
       <OpenMPSupport>true</OpenMPSupport>
       <Optimization>MaxSpeed</Optimization>
       <PreprocessKeepComments>true</PreprocessKeepComments>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_WINDOWS;CGAL_CFG_NO_CPP0X_VARIADIC_TEMPLATES;CGAL_CFG_NO_NEXTAFTER;CGAL_CFG_NO_TR1_ARRAY;CGAL_CFG_NO_TR1_TUPLE;CHOLMOD;EIGEN;NDEBUG;NOMINMAX;QT_CORE_LIB;QT_GUI_LIB;QT_NO_DEBUG;QT_OPENGL_LIB;QT_PLUGIN;QT_WIDGETS_LIB;QT_XML_LIB;UNICODE;UNICODE;WIN32;WIN32;WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>;_WINDOWS;UNICODE;WIN32;WIN64;EIGEN;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CHOLMOD;CGAL_CFG_NO_CPP0X_VARIADIC_TEMPLATES;CGAL_CFG_NO_NEXTAFTER;CGAL_CFG_NO_TR1_ARRAY;CGAL_CFG_NO_TR1_TUPLE;QT_NO_DEBUG;QT_PLUGIN;QT_OPENGL_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_XML_LIB;QT_CORE_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
       <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -184,8 +79,8 @@ if errorlevel 1 goto VCEnd
       <WarningLevel>Level3</WarningLevel>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>glu32.lib;opengl32.lib;gdi32.lib;user32.lib;C:\Users\lenovo/Desktop/StarlabPackageRelease/starlib.lib;C:\Users\lenovo\Desktop\StarlabPackageRelease\surfacemesh.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libopenblas.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\SuiteSparse_config.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libcholmod.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libmetis.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libamd.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libcamd.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libcolamd.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libccolamd.lib;C:\opencv\build\x64\vc12\lib\opencv_core249.lib;C:\opencv\build\x64\vc12\lib\opencv_highgui249.lib;C:\opencv\build\x64\vc12\lib\opencv_features2d249.lib;C:\opencv\build\x64\vc12\lib\opencv_flann249.lib;C:\opencv\build\x64\vc12\lib\opencv_imgproc249.lib;C:\opencv\build\x64\vc12\lib\opencv_video249.lib;d:\CGAL-4.5\build\lib\CGAL-vc120-mt-gd-4.5.lib;d:\CGAL-4.5\build\lib\CGAL-vc120-mt-4.5.lib;d:\CGAL-4.5\build\lib\CGAL_Core-vc120-mt-gd-4.5.lib;d:\CGAL-4.5\build\lib\CGAL_Core-vc120-mt-4.5.lib;d:\CGAL-4.5\auxiliary\gmp\lib\libgmp-10.lib;$(QTDIR)\lib\Qt5OpenGL.lib;$(QTDIR)\lib\Qt5Widgets.lib;$(QTDIR)\lib\Qt5Xml.lib;$(QTDIR)\lib\Qt5Gui.lib;$(QTDIR)\lib\Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(QTDIR)\lib;C:\Users\lenovo\Desktop\StarlabPackageRelease;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64;C:\opencv\build\x64\vc12\lib;d:\CGAL-4.5\build\lib;d:\CGAL-4.5\auxiliary\gmp\lib;D:\boost_1_57_0\lib64-msvc-12.0;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glu32.lib;opengl32.lib;gdi32.lib;user32.lib;C:\Users\Administrator/Desktop/StarlabPackageRelease/starlib.lib;surfacemesh.lib;C:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\lib\win64\libopenblas.lib;C:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\lib\win64\SuiteSparse_config.lib;C:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\lib\win64\libcholmod.lib;C:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\lib\win64\libmetis.lib;C:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\lib\win64\libamd.lib;C:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\lib\win64\libcamd.lib;C:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\lib\win64\libcolamd.lib;C:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\lib\win64\libccolamd.lib;D:\CGAL-4.5\build\lib\CGAL-vc120-mt-gd-4.5.lib;D:\CGAL-4.5\build\lib\CGAL-vc120-mt-4.5.lib;D:\CGAL-4.5\build\lib\CGAL_Core-vc120-mt-gd-4.5.lib;D:\CGAL-4.5\build\lib\CGAL_Core-vc120-mt-4.5.lib;D:\CGAL-4.5\auxiliary\gmp\lib\libgmp-10.lib;$(QTDIR)\lib\Qt5OpenGL.lib;$(QTDIR)\lib\Qt5Widgets.lib;$(QTDIR)\lib\Qt5Gui.lib;$(QTDIR)\lib\Qt5Xml.lib;$(QTDIR)\lib\Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;C:\Users\Administrator\Desktop\StarlabPackageRelease;C:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\lib\win64;D:\CGAL-4.5\build\lib;D:\CGAL-4.5\auxiliary\gmp\lib;D:\boost_1_57_0\boost_1_57_0\lib64-msvc-12.0;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreImportLibrary>true</IgnoreImportLibrary>
@@ -193,67 +88,7 @@ if errorlevel 1 goto VCEnd
       <LinkIncremental>false</LinkIncremental>
       <OutputFile>$(OutDir)\scene_mess.dll</OutputFile>
       <RandomizedBaseAddress>true</RandomizedBaseAddress>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
       <SubSystem>Windows</SubSystem>
-      <TargetMachine>MachineX64</TargetMachine>
-      <AdditionalOptions> /SUBSYSTEM:WINDOWS%40QMAKE_SUBSYSTEM_SUFFIX%40</AdditionalOptions>
-    </Link>
-    <Midl>
-      <DefaultCharType>Unsigned</DefaultCharType>
-      <EnableErrorChecks>None</EnableErrorChecks>
-      <WarningLevel>0</WarningLevel>
-    </Midl>
-    <ResourceCompile>
-      <PreprocessorDefinitions>;_WINDOWS;UNICODE;WIN32;EIGEN;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CHOLMOD;CGAL_CFG_NO_CPP0X_VARIADIC_TEMPLATES;CGAL_CFG_NO_NEXTAFTER;CGAL_CFG_NO_TR1_ARRAY;CGAL_CFG_NO_TR1_TUPLE;QT_NO_DEBUG;QT_PLUGIN;QT_OPENGL_LIB;QT_WIDGETS_LIB;QT_XML_LIB;QT_GUI_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ResourceCompile>
-    <PostBuildEvent>
-      <Command>cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libopenblas.dll C:\Users\lenovo\Desktop\StarlabPackageRelease
-if errorlevel 1 goto VCEnd
- cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libgfortran-3.dll C:\Users\lenovo\Desktop\StarlabPackageRelease
-if errorlevel 1 goto VCEnd
- cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libquadmath-0.dll C:\Users\lenovo\Desktop\StarlabPackageRelease
-if errorlevel 1 goto VCEnd
- cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libgcc_s_sjlj-1.dll C:\Users\lenovo\Desktop\StarlabPackageRelease
-if errorlevel 1 goto VCEnd
-</Command>
-      <Message>cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libopenblas.dll C:\Users\lenovo\Desktop\StarlabPackageRelease
- cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libgfortran-3.dll C:\Users\lenovo\Desktop\StarlabPackageRelease
- cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libquadmath-0.dll C:\Users\lenovo\Desktop\StarlabPackageRelease
- cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libgcc_s_sjlj-1.dll C:\Users\lenovo\Desktop\StarlabPackageRelease
-</Message>
-    </PostBuildEvent>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <ClCompile>
-      <AdditionalIncludeDirectories>..\starlab-master\starlab\core\starlib;..\starlab-master\starlab\core\starlib\parameters;..\starlab-master\starlab\core\starlib\interfaces;.;..\starlab-master\starlab\core\external\eigen-3.2.1;..\starlab-master\starlab\surfacemesh\surfacemesh;..\starlab-master\starlab\surfacemesh\surfacemesh\helpers;E:\Gruvi\starlab-master\starlab\surfacemesh\surfacemesh\parameters;..\starlab-master\starlab\core\external\cholmod-4.0.0\include;C:\opencv\build\include;$(CGAL_DIR)\include;$(CGAL_DIR)\build\include;$(CGAL_DIR)\auxiliary\gmp\include;D:\boost_1_57_0;$(QTDIR)\include;$(QTDIR)\include\QtOpenGL;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtCore;debug;.;$(QTDIR)\mkspecs\win32-msvc2013;.\GeneratedFiles;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>-Zm200 -arch:AVX -w34100 -w34189 %(AdditionalOptions)</AdditionalOptions>
-      <AssemblerListingLocation>debug\</AssemblerListingLocation>
-      <BrowseInformation>false</BrowseInformation>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <ExceptionHandling>Sync</ExceptionHandling>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <ObjectFileName>$(IntDir)</ObjectFileName>
-      <OpenMPSupport>true</OpenMPSupport>
-      <Optimization>Disabled</Optimization>
-      <PreprocessKeepComments>true</PreprocessKeepComments>
-      <PreprocessorDefinitions>;_WINDOWS;UNICODE;WIN32;EIGEN;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CHOLMOD;CGAL_CFG_NO_CPP0X_VARIADIC_TEMPLATES;CGAL_CFG_NO_NEXTAFTER;CGAL_CFG_NO_TR1_ARRAY;CGAL_CFG_NO_TR1_TUPLE;QT_PLUGIN;QT_OPENGL_LIB;QT_WIDGETS_LIB;QT_XML_LIB;QT_GUI_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PreprocessToFile>false</PreprocessToFile>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <WarningLevel>Level3</WarningLevel>
-      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
-    </ClCompile>
-    <Link>
-      <AdditionalDependencies>glu32.lib;opengl32.lib;gdi32.lib;user32.lib;C:\Users\lenovo/Desktop/StarlabPackage/starlib.lib;C:\Users\lenovo\Desktop\StarlabPackage\surfacemesh.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libopenblas.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\SuiteSparse_config.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libcholmod.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libmetis.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libamd.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libcamd.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libcolamd.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libccolamd.lib;C:\opencv\build\x64\vc12\lib\opencv_core249d.lib;C:\opencv\build\x64\vc12\lib\opencv_highgui249d.lib;C:\opencv\build\x64\vc12\lib\opencv_features2d249d.lib;C:\opencv\build\x64\vc12\lib\opencv_flann249d.lib;C:\opencv\build\x64\vc12\lib\opencv_imgproc249d.lib;C:\opencv\build\x64\vc12\lib\opencv_video249d.lib;d:\CGAL-4.5\build\lib\CGAL-vc120-mt-gd-4.5.lib;d:\CGAL-4.5\build\lib\CGAL-vc120-mt-4.5.lib;d:\CGAL-4.5\build\lib\CGAL_Core-vc120-mt-gd-4.5.lib;d:\CGAL-4.5\build\lib\CGAL_Core-vc120-mt-4.5.lib;d:\CGAL-4.5\auxiliary\gmp\lib\libgmp-10.lib;$(QTDIR)\lib\Qt5OpenGLd.lib;$(QTDIR)\lib\Qt5Widgetsd.lib;$(QTDIR)\lib\Qt5Xmld.lib;$(QTDIR)\lib\Qt5Guid.lib;$(QTDIR)\lib\Qt5Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(QTDIR)\lib;C:\Users\lenovo\Desktop\StarlabPackage;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64;C:\opencv\build\x64\vc12\lib;d:\CGAL-4.5\build\lib;d:\CGAL-4.5\auxiliary\gmp\lib;D:\boost_1_57_0\lib64-msvc-12.0;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <DataExecutionPrevention>true</DataExecutionPrevention>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <IgnoreImportLibrary>true</IgnoreImportLibrary>
-      <LinkDLL>true</LinkDLL>
-      <OutputFile>$(OutDir)\scene_mess.dll</OutputFile>
-      <RandomizedBaseAddress>true</RandomizedBaseAddress>
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Link>
     <Midl>
@@ -262,28 +97,28 @@ if errorlevel 1 goto VCEnd
       <WarningLevel>0</WarningLevel>
     </Midl>
     <ResourceCompile>
-      <PreprocessorDefinitions>;_WINDOWS;UNICODE;WIN32;EIGEN;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CHOLMOD;CGAL_CFG_NO_CPP0X_VARIADIC_TEMPLATES;CGAL_CFG_NO_NEXTAFTER;CGAL_CFG_NO_TR1_ARRAY;CGAL_CFG_NO_TR1_TUPLE;QT_PLUGIN;QT_OPENGL_LIB;QT_WIDGETS_LIB;QT_XML_LIB;QT_GUI_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>;_WINDOWS;UNICODE;WIN32;WIN64;EIGEN;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CHOLMOD;CGAL_CFG_NO_CPP0X_VARIADIC_TEMPLATES;CGAL_CFG_NO_NEXTAFTER;CGAL_CFG_NO_TR1_ARRAY;CGAL_CFG_NO_TR1_TUPLE;QT_NO_DEBUG;QT_PLUGIN;QT_OPENGL_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_XML_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <PostBuildEvent>
-      <Command>cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libopenblas.dll C:\Users\lenovo\Desktop\StarlabPackage
+      <Command>cmd /c copy /y C:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\lib\win64\libopenblas.dll C:\Users\Administrator\Desktop\StarlabPackageRelease
 if errorlevel 1 goto VCEnd
- cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libgfortran-3.dll C:\Users\lenovo\Desktop\StarlabPackage
+ cmd /c copy /y C:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\lib\win64\libgfortran-3.dll C:\Users\Administrator\Desktop\StarlabPackageRelease
 if errorlevel 1 goto VCEnd
- cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libquadmath-0.dll C:\Users\lenovo\Desktop\StarlabPackage
+ cmd /c copy /y C:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\lib\win64\libquadmath-0.dll C:\Users\Administrator\Desktop\StarlabPackageRelease
 if errorlevel 1 goto VCEnd
- cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libgcc_s_sjlj-1.dll C:\Users\lenovo\Desktop\StarlabPackage
+ cmd /c copy /y C:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\lib\win64\libgcc_s_sjlj-1.dll C:\Users\Administrator\Desktop\StarlabPackageRelease
 if errorlevel 1 goto VCEnd
 </Command>
-      <Message>cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libopenblas.dll C:\Users\lenovo\Desktop\StarlabPackage
- cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libgfortran-3.dll C:\Users\lenovo\Desktop\StarlabPackage
- cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libquadmath-0.dll C:\Users\lenovo\Desktop\StarlabPackage
- cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libgcc_s_sjlj-1.dll C:\Users\lenovo\Desktop\StarlabPackage
+      <Message>cmd /c copy /y C:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\lib\win64\libopenblas.dll C:\Users\Administrator\Desktop\StarlabPackageRelease
+ cmd /c copy /y C:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\lib\win64\libgfortran-3.dll C:\Users\Administrator\Desktop\StarlabPackageRelease
+ cmd /c copy /y C:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\lib\win64\libquadmath-0.dll C:\Users\Administrator\Desktop\StarlabPackageRelease
+ cmd /c copy /y C:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\lib\win64\libgcc_s_sjlj-1.dll C:\Users\Administrator\Desktop\StarlabPackageRelease
 </Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\starlab-master\starlab\core\starlib;..\starlab-master\starlab\core\starlib\parameters;..\starlab-master\starlab\core\starlib\interfaces;.;..\starlab-master\starlab\core\external\eigen-3.2.1;..\starlab-master\starlab\surfacemesh\surfacemesh;..\starlab-master\starlab\surfacemesh\surfacemesh\helpers;E:\Gruvi\starlab-master\starlab\surfacemesh\surfacemesh\parameters;..\starlab-master\starlab\core\external\cholmod-4.0.0\include;C:\opencv\build\include;$(CGAL_DIR)\include;$(CGAL_DIR)\build\include;$(CGAL_DIR)\auxiliary\gmp\include;D:\boost_1_57_0;$(QTDIR)\include;$(QTDIR)\include\QtOpenGL;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtCore;debug;.;$(QTDIR)\mkspecs\win32-msvc2013;.\GeneratedFiles;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;F:\starlab\core\starlib;F:\starlab\core\starlib\parameters;F:\starlab\core\starlib\interfaces;F:\starlab\core\external\eigen-3.2.1;F:\starlab\surfacemesh\surfacemesh;F:\starlab\surfacemesh\surfacemesh\helpers;F:\starlab\surfacemesh\surfacemesh\parameters;F:\starlab\core\external\cholmod-4.0.0\include;$(CGAL_DIR)\include;$(CGAL_DIR)\build\include;$(CGAL_DIR)\auxiliary\gmp\include;D:\boost_1_57_0\boost_1_57_0;..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include;..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtOpenGL;..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtWidgets;..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtGui;..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtXml;..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtCore;debug;..\qt\qt5.4.1\5.4\msvc2013_64_opengl\mkspecs\win32-msvc2013;.\GeneratedFiles;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zm200 -arch:AVX -w34100 -w34189 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>debug\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
@@ -294,7 +129,7 @@ if errorlevel 1 goto VCEnd
       <OpenMPSupport>true</OpenMPSupport>
       <Optimization>Disabled</Optimization>
       <PreprocessKeepComments>true</PreprocessKeepComments>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_WINDOWS;CGAL_CFG_NO_CPP0X_VARIADIC_TEMPLATES;CGAL_CFG_NO_NEXTAFTER;CGAL_CFG_NO_TR1_ARRAY;CGAL_CFG_NO_TR1_TUPLE;CHOLMOD;EIGEN;NOMINMAX;QT_CORE_LIB;QT_GUI_LIB;QT_OPENGL_LIB;QT_PLUGIN;QT_WIDGETS_LIB;QT_XML_LIB;UNICODE;UNICODE;WIN32;WIN32;WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;EIGEN;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CHOLMOD;CGAL_CFG_NO_CPP0X_VARIADIC_TEMPLATES;CGAL_CFG_NO_NEXTAFTER;CGAL_CFG_NO_TR1_ARRAY;CGAL_CFG_NO_TR1_TUPLE;QT_PLUGIN;QT_OPENGL_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_XML_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -304,19 +139,17 @@ if errorlevel 1 goto VCEnd
       <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>glu32.lib;opengl32.lib;gdi32.lib;user32.lib;C:\Users\lenovo/Desktop/StarlabPackage/starlib.lib;C:\Users\lenovo\Desktop\StarlabPackage\surfacemesh.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libopenblas.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\SuiteSparse_config.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libcholmod.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libmetis.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libamd.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libcamd.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libcolamd.lib;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libccolamd.lib;C:\opencv\build\x64\vc12\lib\opencv_core249d.lib;C:\opencv\build\x64\vc12\lib\opencv_highgui249d.lib;C:\opencv\build\x64\vc12\lib\opencv_features2d249d.lib;C:\opencv\build\x64\vc12\lib\opencv_flann249d.lib;C:\opencv\build\x64\vc12\lib\opencv_imgproc249d.lib;C:\opencv\build\x64\vc12\lib\opencv_video249d.lib;d:\CGAL-4.5\build\lib\CGAL-vc120-mt-gd-4.5.lib;d:\CGAL-4.5\build\lib\CGAL-vc120-mt-4.5.lib;d:\CGAL-4.5\build\lib\CGAL_Core-vc120-mt-gd-4.5.lib;d:\CGAL-4.5\build\lib\CGAL_Core-vc120-mt-4.5.lib;d:\CGAL-4.5\auxiliary\gmp\lib\libgmp-10.lib;$(QTDIR)\lib\Qt5OpenGLd.lib;$(QTDIR)\lib\Qt5Widgetsd.lib;$(QTDIR)\lib\Qt5Xmld.lib;$(QTDIR)\lib\Qt5Guid.lib;$(QTDIR)\lib\Qt5Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(QTDIR)\lib;C:\Users\lenovo\Desktop\StarlabPackage;E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64;C:\opencv\build\x64\vc12\lib;d:\CGAL-4.5\build\lib;d:\CGAL-4.5\auxiliary\gmp\lib;D:\boost_1_57_0\lib64-msvc-12.0;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glu32.lib;opengl32.lib;gdi32.lib;user32.lib;C:\Users\Administrator\Desktop\StarlabPackage\starlib.lib;C:\Users\Administrator\Desktop\StarlabPackage\surfacemesh.lib;F:\starlab\core\external\cholmod-4.0.0\lib\win64\libopenblas.lib;F:\starlab\core\external\cholmod-4.0.0\lib\win64\SuiteSparse_config.lib;F:\starlab\core\external\cholmod-4.0.0\lib\win64\libcholmod.lib;F:\starlab\core\external\cholmod-4.0.0\lib\win64\libmetis.lib;F:\starlab\core\external\cholmod-4.0.0\lib\win64\libamd.lib;F:\starlab\core\external\cholmod-4.0.0\lib\win64\libcamd.lib;F:\starlab\core\external\cholmod-4.0.0\lib\win64\libcolamd.lib;F:\starlab\core\external\cholmod-4.0.0\lib\win64\libccolamd.lib;D:\CGAL-4.5\build\lib\CGAL-vc120-mt-gd-4.5.lib;D:\CGAL-4.5\build\lib\CGAL-vc120-mt-4.5.lib;D:\CGAL-4.5\build\lib\CGAL_Core-vc120-mt-gd-4.5.lib;D:\CGAL-4.5\build\lib\CGAL_Core-vc120-mt-4.5.lib;D:\CGAL-4.5\auxiliary\gmp\lib\libgmp-10.lib;$(QTDIR)\lib\Qt5OpenGLd.lib;$(QTDIR)\lib\Qt5Widgetsd.lib;$(QTDIR)\lib\Qt5Guid.lib;$(QTDIR)\lib\Qt5Xmld.lib;$(QTDIR)\lib\Qt5Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;C:\Users\Administrator\Desktop\StarlabPackage;F:\starlab\core\external\cholmod-4.0.0\lib\win64;D:\CGAL-4.5\build\lib;D:\CGAL-4.5\auxiliary\gmp\lib;D:\boost_1_57_0\boost_1_57_0\lib64-msvc-12.0;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreImportLibrary>true</IgnoreImportLibrary>
       <LinkDLL>true</LinkDLL>
-      <OutputFile>$(OutDir)\scene_mess.dll</OutputFile>
+      <OutputFile>C:\Users\Administrator\Desktop\StarlabPackage\plugins\scene_mess.dll</OutputFile>
       <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <SubSystem>Windows</SubSystem>
-      <TargetMachine>MachineX64</TargetMachine>
-      <AdditionalOptions>
-      </AdditionalOptions>
+      <AdditionalOptions />
     </Link>
     <Midl>
       <DefaultCharType>Unsigned</DefaultCharType>
@@ -324,40 +157,37 @@ if errorlevel 1 goto VCEnd
       <WarningLevel>0</WarningLevel>
     </Midl>
     <ResourceCompile>
-      <PreprocessorDefinitions>;_WINDOWS;UNICODE;WIN32;EIGEN;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CHOLMOD;CGAL_CFG_NO_CPP0X_VARIADIC_TEMPLATES;CGAL_CFG_NO_NEXTAFTER;CGAL_CFG_NO_TR1_ARRAY;CGAL_CFG_NO_TR1_TUPLE;QT_PLUGIN;QT_OPENGL_LIB;QT_WIDGETS_LIB;QT_XML_LIB;QT_GUI_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>;_WINDOWS;UNICODE;WIN32;WIN64;EIGEN;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CHOLMOD;CGAL_CFG_NO_CPP0X_VARIADIC_TEMPLATES;CGAL_CFG_NO_NEXTAFTER;CGAL_CFG_NO_TR1_ARRAY;CGAL_CFG_NO_TR1_TUPLE;QT_PLUGIN;QT_OPENGL_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_XML_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <PostBuildEvent>
-      <Command>cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libopenblas.dll C:\Users\lenovo\Desktop\StarlabPackage
+      <Command>cmd /c copy /y C:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\lib\win64\libopenblas.dll C:\Users\Administrator\Desktop\StarlabPackage
 if errorlevel 1 goto VCEnd
- cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libgfortran-3.dll C:\Users\lenovo\Desktop\StarlabPackage
+ cmd /c copy /y C:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\lib\win64\libgfortran-3.dll C:\Users\Administrator\Desktop\StarlabPackage
 if errorlevel 1 goto VCEnd
- cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libquadmath-0.dll C:\Users\lenovo\Desktop\StarlabPackage
+ cmd /c copy /y C:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\lib\win64\libquadmath-0.dll C:\Users\Administrator\Desktop\StarlabPackage
 if errorlevel 1 goto VCEnd
- cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libgcc_s_sjlj-1.dll C:\Users\lenovo\Desktop\StarlabPackage
+ cmd /c copy /y C:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\lib\win64\libgcc_s_sjlj-1.dll C:\Users\Administrator\Desktop\StarlabPackage
 if errorlevel 1 goto VCEnd
 </Command>
-      <Message>cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libopenblas.dll C:\Users\lenovo\Desktop\StarlabPackage
- cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libgfortran-3.dll C:\Users\lenovo\Desktop\StarlabPackage
- cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libquadmath-0.dll C:\Users\lenovo\Desktop\StarlabPackage
- cmd /c copy /y E:\Gruvi\starlab-master\starlab\core\external\cholmod-4.0.0\lib\win64\libgcc_s_sjlj-1.dll C:\Users\lenovo\Desktop\StarlabPackage
+      <Message>cmd /c copy /y C:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\lib\win64\libopenblas.dll C:\Users\Administrator\Desktop\StarlabPackage
+ cmd /c copy /y C:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\lib\win64\libgfortran-3.dll C:\Users\Administrator\Desktop\StarlabPackage
+ cmd /c copy /y C:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\lib\win64\libquadmath-0.dll C:\Users\Administrator\Desktop\StarlabPackage
+ cmd /c copy /y C:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\lib\win64\libgcc_s_sjlj-1.dll C:\Users\Administrator\Desktop\StarlabPackage
 </Message>
     </PostBuildEvent>
+    <ProjectReference>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Debug\moc_mess_mode.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Debug\moc_mess_widget.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\qrc_scene_mess.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
@@ -389,6 +219,7 @@ if errorlevel 1 goto VCEnd
     <ClInclude Include="Geometry\BoundingBox.h" />
     <ClInclude Include="Geometry\CModel.h" />
     <ClInclude Include="Geometry\SceneList.h" />
+    <ClInclude Include="Header.h" />
     <ClInclude Include="Math\random.h" />
     <ClInclude Include="Synthesis\Layouter.h" />
     <ClInclude Include="Utilities\CustomDrawObjects.h" />
@@ -409,105 +240,86 @@ if errorlevel 1 goto VCEnd
     <ClInclude Include="Geometry\font.inl" />
     <ClInclude Include="Math\mathlib.h" />
     <CustomBuild Include="mess_mode.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DEIGEN -D_CRT_SECURE_NO_WARNINGS -DNOMINMAX -DCHOLMOD -DCGAL_CFG_NO_CPP0X_VARIADIC_TEMPLATES -DCGAL_CFG_NO_NEXTAFTER -DCGAL_CFG_NO_TR1_ARRAY -DCGAL_CFG_NO_TR1_TUPLE -DQT_NO_DEBUG -DQT_PLUGIN -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DNDEBUG -D_WINDLL  "-I.\..\starlab-master\starlab\core\starlib" "-I.\..\starlab-master\starlab\core\starlib\parameters" "-I.\..\starlab-master\starlab\core\starlib\interfaces" "-I." "-I.\..\starlab-master\starlab\core\external\eigen-3.2.1" "-I.\..\starlab-master\starlab\surfacemesh\surfacemesh" "-I.\..\starlab-master\starlab\surfacemesh\surfacemesh\helpers" "-IE:\Gruvi\starlab-master\starlab\surfacemesh\surfacemesh\parameters" "-I.\..\starlab-master\starlab\core\external\cholmod-4.0.0\include" "-IC:\opencv\build\include" "-I$(CGAL_DIR)\include" "-I$(CGAL_DIR)\build\include" "-I$(CGAL_DIR)\auxiliary\gmp\include" "-ID:\boost_1_57_0" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtCore" "-I.\release" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_CRT_SECURE_NO_WARNINGS -D_WINDOWS -DCGAL_CFG_NO_CPP0X_VARIADIC_TEMPLATES -DCGAL_CFG_NO_NEXTAFTER -DCGAL_CFG_NO_TR1_ARRAY -DCGAL_CFG_NO_TR1_TUPLE -DCHOLMOD -DEIGEN -DNDEBUG -DNOMINMAX -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_OPENGL_LIB -DQT_PLUGIN -DQT_WIDGETS_LIB -DQT_XML_LIB -DUNICODE -DWIN32 -DWIN64 -D_WINDLL  "-I.\..\starlab-master\starlab\core\starlib" "-I.\..\starlab-master\starlab\core\starlib\parameters" "-I.\..\starlab-master\starlab\core\starlib\interfaces" "-I." "-I.\..\starlab-master\starlab\core\external\eigen-3.2.1" "-I.\..\starlab-master\starlab\surfacemesh\surfacemesh" "-I.\..\starlab-master\starlab\surfacemesh\surfacemesh\helpers" "-IE:\Gruvi\starlab-master\starlab\surfacemesh\surfacemesh\parameters" "-I.\..\starlab-master\starlab\core\external\cholmod-4.0.0\include" "-IC:\opencv\build\include" "-I$(CGAL_DIR)\include" "-I$(CGAL_DIR)\build\include" "-I$(CGAL_DIR)\auxiliary\gmp\include" "-ID:\boost_1_57_0" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtCore" "-I.\release" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing mess_mode.h...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+if errorlevel 1 goto VCEnd
+
+if errorlevel 1 goto VCEnd
+endlocal
+"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DWIN64 -DEIGEN -D_CRT_SECURE_NO_WARNINGS -DNOMINMAX -DCHOLMOD -DCGAL_CFG_NO_CPP0X_VARIADIC_TEMPLATES -DCGAL_CFG_NO_NEXTAFTER -DCGAL_CFG_NO_TR1_ARRAY -DCGAL_CFG_NO_TR1_TUPLE -DQT_NO_DEBUG -DQT_PLUGIN -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB -DNDEBUG -D_WINDLL "-I." "-IC:\Users\Administrator\Desktop\starlab\core\starlib" "-IC:\Users\Administrator\Desktop\starlab\core\starlib\parameters" "-IC:\Users\Administrator\Desktop\starlab\core\starlib\interfaces" "-IC:\Users\Administrator\Desktop\starlab\core\external\eigen-3.2.1" "-IC:\Users\Administrator\Desktop\starlab\surfacemesh\surfacemesh" "-IC:\Users\Administrator\Desktop\starlab\surfacemesh\surfacemesh\helpers" "-IC:\Users\Administrator\Desktop\starlab\surfacemesh\surfacemesh\parameters" "-IC:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\include" "-I$(CGAL_DIR)\include" "-I$(CGAL_DIR)\build\include" "-I$(CGAL_DIR)\auxiliary\gmp\include" "-ID:\boost_1_57_0\boost_1_57_0" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtOpenGL" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtWidgets" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtGui" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtXml" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtCore" "-I.\release" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\mkspecs\win32-msvc2013"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing mess_mode.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DEIGEN -D_CRT_SECURE_NO_WARNINGS -DNOMINMAX -DCHOLMOD -DCGAL_CFG_NO_CPP0X_VARIADIC_TEMPLATES -DCGAL_CFG_NO_NEXTAFTER -DCGAL_CFG_NO_TR1_ARRAY -DCGAL_CFG_NO_TR1_TUPLE -DQT_PLUGIN -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -D_WINDLL  "-I.\..\starlab-master\starlab\core\starlib" "-I.\..\starlab-master\starlab\core\starlib\parameters" "-I.\..\starlab-master\starlab\core\starlib\interfaces" "-I." "-I.\..\starlab-master\starlab\core\external\eigen-3.2.1" "-I.\..\starlab-master\starlab\surfacemesh\surfacemesh" "-I.\..\starlab-master\starlab\surfacemesh\surfacemesh\helpers" "-IE:\Gruvi\starlab-master\starlab\surfacemesh\surfacemesh\parameters" "-I.\..\starlab-master\starlab\core\external\cholmod-4.0.0\include" "-IC:\opencv\build\include" "-I$(CGAL_DIR)\include" "-I$(CGAL_DIR)\build\include" "-I$(CGAL_DIR)\auxiliary\gmp\include" "-ID:\boost_1_57_0" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtCore" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_CRT_SECURE_NO_WARNINGS -D_WINDOWS -DCGAL_CFG_NO_CPP0X_VARIADIC_TEMPLATES -DCGAL_CFG_NO_NEXTAFTER -DCGAL_CFG_NO_TR1_ARRAY -DCGAL_CFG_NO_TR1_TUPLE -DCHOLMOD -DEIGEN -DNOMINMAX -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_PLUGIN -DQT_WIDGETS_LIB -DQT_XML_LIB -DUNICODE -DWIN32 -DWIN64 -D_WINDLL  "-I.\..\starlab-master\starlab\core\starlib" "-I.\..\starlab-master\starlab\core\starlib\parameters" "-I.\..\starlab-master\starlab\core\starlib\interfaces" "-I." "-I.\..\starlab-master\starlab\core\external\eigen-3.2.1" "-I.\..\starlab-master\starlab\surfacemesh\surfacemesh" "-I.\..\starlab-master\starlab\surfacemesh\surfacemesh\helpers" "-IE:\Gruvi\starlab-master\starlab\surfacemesh\surfacemesh\parameters" "-I.\..\starlab-master\starlab\core\external\cholmod-4.0.0\include" "-IC:\opencv\build\include" "-I$(CGAL_DIR)\include" "-I$(CGAL_DIR)\build\include" "-I$(CGAL_DIR)\auxiliary\gmp\include" "-ID:\boost_1_57_0" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtCore" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing mess_mode.h...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+if errorlevel 1 goto VCEnd
+
+if errorlevel 1 goto VCEnd
+endlocal
+"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DWIN64 -DEIGEN -D_CRT_SECURE_NO_WARNINGS -DNOMINMAX -DCHOLMOD -DCGAL_CFG_NO_CPP0X_VARIADIC_TEMPLATES -DCGAL_CFG_NO_NEXTAFTER -DCGAL_CFG_NO_TR1_ARRAY -DCGAL_CFG_NO_TR1_TUPLE -DQT_PLUGIN -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB -D_WINDLL "-I." "-IC:\Users\Administrator\Desktop\starlab\core\starlib" "-IC:\Users\Administrator\Desktop\starlab\core\starlib\parameters" "-IC:\Users\Administrator\Desktop\starlab\core\starlib\interfaces" "-IC:\Users\Administrator\Desktop\starlab\core\external\eigen-3.2.1" "-IC:\Users\Administrator\Desktop\starlab\surfacemesh\surfacemesh" "-IC:\Users\Administrator\Desktop\starlab\surfacemesh\surfacemesh\helpers" "-IC:\Users\Administrator\Desktop\starlab\surfacemesh\surfacemesh\parameters" "-IC:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\include" "-I$(CGAL_DIR)\include" "-I$(CGAL_DIR)\build\include" "-I$(CGAL_DIR)\auxiliary\gmp\include" "-ID:\boost_1_57_0\boost_1_57_0" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtOpenGL" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtWidgets" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtGui" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtXml" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtCore" "-I.\debug" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\mkspecs\win32-msvc2013"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing mess_mode.h...</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="mess_widget.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DEIGEN -D_CRT_SECURE_NO_WARNINGS -DNOMINMAX -DCHOLMOD -DCGAL_CFG_NO_CPP0X_VARIADIC_TEMPLATES -DCGAL_CFG_NO_NEXTAFTER -DCGAL_CFG_NO_TR1_ARRAY -DCGAL_CFG_NO_TR1_TUPLE -DQT_NO_DEBUG -DQT_PLUGIN -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DNDEBUG -D_WINDLL  "-I.\..\starlab-master\starlab\core\starlib" "-I.\..\starlab-master\starlab\core\starlib\parameters" "-I.\..\starlab-master\starlab\core\starlib\interfaces" "-I." "-I.\..\starlab-master\starlab\core\external\eigen-3.2.1" "-I.\..\starlab-master\starlab\surfacemesh\surfacemesh" "-I.\..\starlab-master\starlab\surfacemesh\surfacemesh\helpers" "-IE:\Gruvi\starlab-master\starlab\surfacemesh\surfacemesh\parameters" "-I.\..\starlab-master\starlab\core\external\cholmod-4.0.0\include" "-IC:\opencv\build\include" "-I$(CGAL_DIR)\include" "-I$(CGAL_DIR)\build\include" "-I$(CGAL_DIR)\auxiliary\gmp\include" "-ID:\boost_1_57_0" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtCore" "-I.\release" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_CRT_SECURE_NO_WARNINGS -D_WINDOWS -DCGAL_CFG_NO_CPP0X_VARIADIC_TEMPLATES -DCGAL_CFG_NO_NEXTAFTER -DCGAL_CFG_NO_TR1_ARRAY -DCGAL_CFG_NO_TR1_TUPLE -DCHOLMOD -DEIGEN -DNDEBUG -DNOMINMAX -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_OPENGL_LIB -DQT_PLUGIN -DQT_WIDGETS_LIB -DQT_XML_LIB -DUNICODE -DWIN32 -DWIN64 -D_WINDLL  "-I.\..\starlab-master\starlab\core\starlib" "-I.\..\starlab-master\starlab\core\starlib\parameters" "-I.\..\starlab-master\starlab\core\starlib\interfaces" "-I." "-I.\..\starlab-master\starlab\core\external\eigen-3.2.1" "-I.\..\starlab-master\starlab\surfacemesh\surfacemesh" "-I.\..\starlab-master\starlab\surfacemesh\surfacemesh\helpers" "-IE:\Gruvi\starlab-master\starlab\surfacemesh\surfacemesh\parameters" "-I.\..\starlab-master\starlab\core\external\cholmod-4.0.0\include" "-IC:\opencv\build\include" "-I$(CGAL_DIR)\include" "-I$(CGAL_DIR)\build\include" "-I$(CGAL_DIR)\auxiliary\gmp\include" "-ID:\boost_1_57_0" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtCore" "-I.\release" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing mess_widget.h...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+if errorlevel 1 goto VCEnd
+
+if errorlevel 1 goto VCEnd
+endlocal
+"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DWIN64 -DEIGEN -D_CRT_SECURE_NO_WARNINGS -DNOMINMAX -DCHOLMOD -DCGAL_CFG_NO_CPP0X_VARIADIC_TEMPLATES -DCGAL_CFG_NO_NEXTAFTER -DCGAL_CFG_NO_TR1_ARRAY -DCGAL_CFG_NO_TR1_TUPLE -DQT_NO_DEBUG -DQT_PLUGIN -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB -DNDEBUG -D_WINDLL "-I." "-IC:\Users\Administrator\Desktop\starlab\core\starlib" "-IC:\Users\Administrator\Desktop\starlab\core\starlib\parameters" "-IC:\Users\Administrator\Desktop\starlab\core\starlib\interfaces" "-IC:\Users\Administrator\Desktop\starlab\core\external\eigen-3.2.1" "-IC:\Users\Administrator\Desktop\starlab\surfacemesh\surfacemesh" "-IC:\Users\Administrator\Desktop\starlab\surfacemesh\surfacemesh\helpers" "-IC:\Users\Administrator\Desktop\starlab\surfacemesh\surfacemesh\parameters" "-IC:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\include" "-I$(CGAL_DIR)\include" "-I$(CGAL_DIR)\build\include" "-I$(CGAL_DIR)\auxiliary\gmp\include" "-ID:\boost_1_57_0\boost_1_57_0" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtOpenGL" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtWidgets" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtGui" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtXml" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtCore" "-I.\release" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\mkspecs\win32-msvc2013"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing mess_widget.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DEIGEN -D_CRT_SECURE_NO_WARNINGS -DNOMINMAX -DCHOLMOD -DCGAL_CFG_NO_CPP0X_VARIADIC_TEMPLATES -DCGAL_CFG_NO_NEXTAFTER -DCGAL_CFG_NO_TR1_ARRAY -DCGAL_CFG_NO_TR1_TUPLE -DQT_PLUGIN -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -D_WINDLL  "-I.\..\starlab-master\starlab\core\starlib" "-I.\..\starlab-master\starlab\core\starlib\parameters" "-I.\..\starlab-master\starlab\core\starlib\interfaces" "-I." "-I.\..\starlab-master\starlab\core\external\eigen-3.2.1" "-I.\..\starlab-master\starlab\surfacemesh\surfacemesh" "-I.\..\starlab-master\starlab\surfacemesh\surfacemesh\helpers" "-IE:\Gruvi\starlab-master\starlab\surfacemesh\surfacemesh\parameters" "-I.\..\starlab-master\starlab\core\external\cholmod-4.0.0\include" "-IC:\opencv\build\include" "-I$(CGAL_DIR)\include" "-I$(CGAL_DIR)\build\include" "-I$(CGAL_DIR)\auxiliary\gmp\include" "-ID:\boost_1_57_0" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtCore" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_CRT_SECURE_NO_WARNINGS -D_WINDOWS -DCGAL_CFG_NO_CPP0X_VARIADIC_TEMPLATES -DCGAL_CFG_NO_NEXTAFTER -DCGAL_CFG_NO_TR1_ARRAY -DCGAL_CFG_NO_TR1_TUPLE -DCHOLMOD -DEIGEN -DNOMINMAX -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_PLUGIN -DQT_WIDGETS_LIB -DQT_XML_LIB -DUNICODE -DWIN32 -DWIN64 -D_WINDLL  "-I.\..\starlab-master\starlab\core\starlib" "-I.\..\starlab-master\starlab\core\starlib\parameters" "-I.\..\starlab-master\starlab\core\starlib\interfaces" "-I." "-I.\..\starlab-master\starlab\core\external\eigen-3.2.1" "-I.\..\starlab-master\starlab\surfacemesh\surfacemesh" "-I.\..\starlab-master\starlab\surfacemesh\surfacemesh\helpers" "-IE:\Gruvi\starlab-master\starlab\surfacemesh\surfacemesh\parameters" "-I.\..\starlab-master\starlab\core\external\cholmod-4.0.0\include" "-IC:\opencv\build\include" "-I$(CGAL_DIR)\include" "-I$(CGAL_DIR)\build\include" "-I$(CGAL_DIR)\auxiliary\gmp\include" "-ID:\boost_1_57_0" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtCore" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2013" "-I.\GeneratedFiles"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing mess_widget.h...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+if errorlevel 1 goto VCEnd
+
+if errorlevel 1 goto VCEnd
+endlocal
+"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DWIN64 -DEIGEN -D_CRT_SECURE_NO_WARNINGS -DNOMINMAX -DCHOLMOD -DCGAL_CFG_NO_CPP0X_VARIADIC_TEMPLATES -DCGAL_CFG_NO_NEXTAFTER -DCGAL_CFG_NO_TR1_ARRAY -DCGAL_CFG_NO_TR1_TUPLE -DQT_PLUGIN -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB -D_WINDLL "-I." "-IC:\Users\Administrator\Desktop\starlab\core\starlib" "-IC:\Users\Administrator\Desktop\starlab\core\starlib\parameters" "-IC:\Users\Administrator\Desktop\starlab\core\starlib\interfaces" "-IC:\Users\Administrator\Desktop\starlab\core\external\eigen-3.2.1" "-IC:\Users\Administrator\Desktop\starlab\surfacemesh\surfacemesh" "-IC:\Users\Administrator\Desktop\starlab\surfacemesh\surfacemesh\helpers" "-IC:\Users\Administrator\Desktop\starlab\surfacemesh\surfacemesh\parameters" "-IC:\Users\Administrator\Desktop\starlab\core\external\cholmod-4.0.0\include" "-I$(CGAL_DIR)\include" "-I$(CGAL_DIR)\build\include" "-I$(CGAL_DIR)\auxiliary\gmp\include" "-ID:\boost_1_57_0\boost_1_57_0" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtOpenGL" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtWidgets" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtGui" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtXml" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\include\QtCore" "-I.\debug" "-I.\..\qt\qt5.4.1\5.4\msvc2013_64_opengl\mkspecs\win32-msvc2013"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing mess_widget.h...</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <ClInclude Include="Utilities\utility.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Release\moc_mess_mode.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Release\moc_mess_widget.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="mess_widget.ui">
       <FileType>Document</FileType>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic%27ing %(Identity)...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Uic%27ing %(Identity)...</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Identity)...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Uic%27ing %(Identity)...</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
     <None Include="icon\font.png">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </None>
     <None Include="icon\mess_mode.png">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </None>
     <CustomBuild Include="scene_mess.qrc">
       <FileType>Document</FileType>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(FullPath);.\icon\mess_mode.png;.\icon\font.png;%(AdditionalInputs)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(FullPath);.\icon\mess_mode.png;.\icon\font.png;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\rcc.exe" -name "%(Filename)" -no-compress "%(FullPath)" -o .\GeneratedFiles\qrc_%(Filename).cpp</Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\rcc.exe" -name "%(Filename)" -no-compress "%(FullPath)" -o .\GeneratedFiles\qrc_%(Filename).cpp</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Rcc%27ing %(Identity)...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Rcc%27ing %(Identity)...</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\qrc_%(Filename).cpp;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\qrc_%(Filename).cpp;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath);.\icon\mess_mode.png;.\icon\font.png;%(AdditionalInputs)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(FullPath);.\icon\mess_mode.png;.\icon\font.png;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\rcc.exe" -name "%(Filename)" -no-compress "%(FullPath)" -o .\GeneratedFiles\qrc_%(Filename).cpp</Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\rcc.exe" -name "%(Filename)" -no-compress "%(FullPath)" -o .\GeneratedFiles\qrc_%(Filename).cpp</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Rcc%27ing %(Identity)...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Rcc%27ing %(Identity)...</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\qrc_%(Filename).cpp;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\qrc_%(Filename).cpp;%(Outputs)</Outputs>
     </CustomBuild>
     <None Include="Math\random.inl" />

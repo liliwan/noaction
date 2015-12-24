@@ -105,7 +105,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Synthesis\Layouter.cpp">
-      <Filter>Generated Files</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -184,13 +184,16 @@
     <ClInclude Include="GeneratedFiles\ui_mess_widget.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
+    <ClInclude Include="Header.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
     <ClInclude Include="Geometry\SceneList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Synthesis\Layouter.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
     <ClInclude Include="Math\random.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Synthesis\Layouter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -223,7 +226,6 @@
     <CustomBuild Include="scene_mess.qrc">
       <Filter>Resource Files</Filter>
     </CustomBuild>
-    <None Include="ClassDiagram1.cd" />
     <None Include="Math\random.inl">
       <Filter>Header Files</Filter>
     </None>

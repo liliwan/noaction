@@ -1514,3 +1514,18 @@ std::vector<MathLib::Vector3> COBB::GetTransformedVertices(const Eigen::Matrix4d
 
 	return trans_vp;
 }
+double COBB::getProjectionRadius(const MathLib::Vector3 &p) const{
+
+	// axis, axisX and axisY are unit vector
+
+	// projected axisX to axis
+	const std::vector<Vector3> &A = this->axis;
+	float projectionAxisX = A[0].dot(p);
+	// projected axisY to axis
+	float projectionAxisY = A[1].dot(p);
+	// projected axisY to axis
+	float projectionAxisZ = A[2].dot(p);
+	//cobb size
+	const Vector3 &EA = this->hsize;
+	return abs(EA[0] * projectionAxisX + EA[1] * projectionAxisY + EA[2] * projectionAxisZ);
+}

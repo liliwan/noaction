@@ -1,8 +1,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "scene_mess", "scene_mess.vcxproj", "{292121A8-922D-34E8-8181-FCB4A2DD764F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "scene_mess", "scene_mess.vcxproj", "{B3802D02-D3E7-31B6-A493-1768CF1EF290}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,14 +12,13 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{292121A8-922D-34E8-8181-FCB4A2DD764F}.Debug|Win32.ActiveCfg = Debug|Win32
-		{292121A8-922D-34E8-8181-FCB4A2DD764F}.Debug|Win32.Build.0 = Debug|Win32
-		{292121A8-922D-34E8-8181-FCB4A2DD764F}.Debug|x64.ActiveCfg = Debug|x64
-		{292121A8-922D-34E8-8181-FCB4A2DD764F}.Debug|x64.Build.0 = Debug|x64
-		{292121A8-922D-34E8-8181-FCB4A2DD764F}.Release|Win32.ActiveCfg = Release|Win32
-		{292121A8-922D-34E8-8181-FCB4A2DD764F}.Release|Win32.Build.0 = Release|Win32
-		{292121A8-922D-34E8-8181-FCB4A2DD764F}.Release|x64.ActiveCfg = Release|x64
-		{292121A8-922D-34E8-8181-FCB4A2DD764F}.Release|x64.Build.0 = Release|x64
+		{B3802D02-D3E7-31B6-A493-1768CF1EF290}.Debug|Win32.ActiveCfg = Debug|x64
+		{B3802D02-D3E7-31B6-A493-1768CF1EF290}.Debug|Win32.Build.0 = Debug|x64
+		{B3802D02-D3E7-31B6-A493-1768CF1EF290}.Debug|x64.ActiveCfg = Debug|x64
+		{B3802D02-D3E7-31B6-A493-1768CF1EF290}.Debug|x64.Build.0 = Debug|x64
+		{B3802D02-D3E7-31B6-A493-1768CF1EF290}.Release|Win32.ActiveCfg = Release|x64
+		{B3802D02-D3E7-31B6-A493-1768CF1EF290}.Release|x64.ActiveCfg = Release|x64
+		{B3802D02-D3E7-31B6-A493-1768CF1EF290}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

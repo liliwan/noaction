@@ -5,11 +5,12 @@
 #include <iostream>
 #include <fstream>
 #include <algorithm>
-
+#include "../math/mathlib.h"
 #include "Skeleton.h"
 
 #include "font.inl"
 
+FILE *file_lh = fopen("H:\\code\\res.txt", "w+");
 
 CScene::CScene() :
 m_SuppThresh(0.1),
@@ -100,7 +101,8 @@ void CScene::loadScene(const QString filename)
 	//}
 
 	buildModelSuppPlane();
-	collectSuppPlanes();
+	//collectSuppPlanes();//原来的
+	collectSuppPlanes(1);// 带参数的重载函数collect supportplanes with supportlabels filter
 	//voxelizeModels();
 }
 
@@ -796,6 +798,7 @@ void CScene::drawModelName()
 	foreach(CModel *m, m_modelList)
 	{
 		QString modelName = m->label();
+		QString modePath = m->getFilePath();
 		SurfaceMesh::Vector3 center = m->getTransformedOBBCenter();
 		drawModelName(modelName, center);
 	}
@@ -1046,7 +1049,7 @@ std::vector<double> CScene::getFloorXYRange()
 
 void CScene::buildModelSuppPlane()
 {
-	buildSupportHierarchy();
+	//buildSupportHierarchy();
 	for (int i = 0; i < m_modelNum; i++)
 	{
 		m_modelList[i]->buildSuppPlane();
@@ -1143,6 +1146,7 @@ int CScene::doSymmetryConnection(ConnType ct, bool bCompSCG)
 
 void CScene::arrangeSceneByRandom(const QString filename)
 {
+#if 0
 	QFile inFile(filename);
 	QTextStream ifs(&inFile);
 
@@ -1157,7 +1161,7 @@ void CScene::arrangeSceneByRandom(const QString filename)
 	double modelMetric;
 	QString addmodelLabel;
 
-	
+
 	ifs >> modelMetric;
 
 	ifs >> addmodelLabel;
@@ -1182,13 +1186,15 @@ void CScene::arrangeSceneByRandom(const QString filename)
 
 		if (i <= 10)
 		{
-			modelName = "book_0" + s;			
+			//modelName = "book_0" + s;
+			modelName = addmodelLabel + "_0" + s;
 		}
 		else
 		{
-			modelName = "book_" + s;
+			//modelName = "book_" + s;
+			modelName = addmodelLabel + "_" + s;
 		}
-		
+
 		CModel *newModel = new CModel();
 
 		newModel->loadModel(m_arrangeFilePath + "/" + modelName + ".obj", m_modelMetric);
@@ -1205,10 +1211,16 @@ void CScene::arrangeSceneByRandom(const QString filename)
 
 		// where to place
 		MathLib::Vector3 newLocation(0, 0, 0);
-		newLocation = selectSuppLocationByRandom(); // selectSuppLocationByRandom(2); 
-		if (testAvailableForNewLocation(m_modelNum + i - 1, newLocation))
+		//-----新代码，先获取支撑平面的id，再在该id的支撑平面上取一个位置
+		int planeID = selectSuppPlaneByRandom();
+		newLocation = selectLocOnSuppPlaneByRandom(planeID);
+		//-------------------------
+		//newLocation = selectSuppLocationByRandom(); //原来的代码，直接取位置
+
+		/*if (testAvailableForNewLocation(m_modelNum + i - 1, newLocation))*/
+		if (testAvailableForNewLocation(planeID, m_modelNum + i - 1, newLocation))
 		{
-			m_modelList[m_modelNum + i - 1]->TransformVertices(newLocation);
+			m_modelList[m_modelNum + i - 1]->TransformVertices(newLocation);//gengxin dingdian,zhi gengxin l 8 dingdian
 
 			// update
 			m_modelList[m_modelNum + i - 1]->updateOBB(2);
@@ -1232,7 +1244,217 @@ void CScene::arrangeSceneByRandom(const QString filename)
 	buildModelDislayList();
 	computeModelOBB();
 
-	//buildRelationshipGraph();
+#else
+	QFile inFile(filename);
+	QTextStream ifs(&inFile);
+
+	if (!inFile.open(QIODevice::ReadOnly | QIODevice::Text)) return;
+
+	QFileInfo arrangeFileInfo(inFile.fileName());
+
+	m_arrangeFileName = arrangeFileInfo.baseName();
+	m_arrangeFilePath = arrangeFileInfo.absolutePath() + "/";
+
+	int addModelNum;
+	double modelMetric;
+	QString addmodelLabel;
+
+
+	ifs >> modelMetric;
+
+	ifs >> addmodelLabel;
+
+	ifs >> addModelNum;
+	inFile.close();
+
+	// add models
+	QString modelName;
+
+	// available location
+
+
+	for (int i = 1; i <= addModelNum; i++)
+	{
+		QString s;
+		s = QString::number(i, 10);
+		
+		if (i <= 10)
+		{
+			//modelName = "book_0" + s;
+			modelName = addmodelLabel + "_0" + s;
+		}
+		else
+		{
+			//modelName = "book_" + s;
+			modelName = addmodelLabel + "_" + s;
+		}
+
+		CModel *newModel = new CModel();
+
+		//newModel->loadModel(m_arrangeFilePath + "/" + modelName + ".obj", m_modelMetric);
+		newModel->loadModel(m_arrangeFilePath + "/" + modelName + ".obj", modelMetric);
+		//newModel->setLabel(addmodelLabel);
+		newModel->setLabel(modelName);
+		newModel->setModeName(modelName);
+		newModel->setFilePath(m_arrangeFilePath);
+		newModel->setID(m_modelNum);
+		newModel->setSceneUpRightVec(m_uprightVec);
+
+		m_modelList[m_modelNum] = newModel; //.push_back(newModel);
+		m_modelNameIdMap[modelName] = i;
+
+		m_modelList[m_modelNum ]->computeOBB(2);
+		m_modelList[m_modelNum ]->updateCurrentLocation();
+
+		// where to place
+		MathLib::Vector3 newLocation(0, 0, 0);
+
+
+		/*if (testAvailableForNewLocation(m_modelNum + i - 1, newLocation))*/
+		//int planeID = selectSuppPlaneByRandom();
+	int planeID =0;
+		newLocation = selectLocOnSuppPlaneByRandom(planeID);
+		//-------------------------
+		//newLocation = selectSuppLocationByRandom(); //原来的代码，直接取位置
+		/*if (testAvailableForNewLocation(m_modelNum + i - 1, newLocation))*/
+		int count = 0;
+		boolean bfind = false;
+		fprintf(file_lh, "initial try to addMode %s into plane %d\n", modelName.toLatin1().data(),planeID);
+		while (1)
+		{
+			fprintf(file_lh, "New Loc mode %d %.3lf %.3lf %.3lf\n ", m_modelNum,newLocation[0], newLocation[1], newLocation[2]);
+			if (testAvailableForNewLocation(planeID, m_modelNum , newLocation))
+			{
+				fprintf(file_lh, "by calculate, add model %d into plane %d\n", m_modelNum, planeID);				
+				m_modelList[m_modelNum ]->TransformVertices(newLocation);//gengxin dingdian,zhi gengxin l 8 dingdian
+				// update
+				m_modelList[m_modelNum ]->updateOBB(2);
+				//m_modelList[m_modelNum]->updateOBB(3);
+				m_modelList[m_modelNum ]->updateCurrentLocation();
+				//m_modelList[m_modelNum ]->buildSuppPlane();
+				//addSuppPlanes(m_modelNum );
+				bfind = true;
+
+	
+
+
+				//std::map<int, std::vector<int>>::iterator iter = m_suppPlaneModelsMap.find(planeId);
+				//std::vector<int>* models1;
+				//iter = m_suppPlaneModelsMap.find(planeId);
+				//models1 = &(iter->second);
+
+
+
+				//std::map<int, std::vector<int>>::iterator iter = m_suppPlaneModelsMap.find(planeID);
+				//if (iter != m_suppPlaneModelsMap.end()) {
+				//	//找到当前支撑平面的对应关系
+				//	std::vector<int>* models = &(iter->second);
+				//	for (size_t i = 0; i < models->size(); i++)
+				//	{
+				//		CModel *tmp = m_modelList[models->at(i)];
+				//		fprintf(file_lh, "after calculate,  model %s is in plane %d\n", tmp->getModeName().toLatin1().data(), planeID);
+				//	}
+				//}
+				//
+				break;
+			}
+			else if (count<100)
+			{
+				planeID = selectSuppPlaneByRandom();
+				//planeID = 0;
+				newLocation = selectLocOnSuppPlaneByRandom(planeID);
+			}
+			else
+			{
+				bfind = false;
+				break;
+			}
+
+		}
+
+		//if (testAvailableForNewLocation(planeID, m_modelNum , newLocation))
+		//{
+		//	m_modelList[m_modelNum ]->TransformVertices(newLocation);//gengxin dingdian,zhi gengxin l 8 dingdian
+
+		//	// update
+		//	m_modelList[m_modelNum ]->updateOBB(2);
+		//	m_modelList[m_modelNum ]->updateCurrentLocation();
+		//	m_modelList[m_modelNum ]->buildSuppPlane();
+		//	addSuppPlanes(m_modelNum );
+		//}
+		if (bfind)
+		{
+			//m_modelNameIdMap[modelName] = m_modelNum;
+			//Eigen::AlignedBox3d curbox = m_modelList[m_modelNum]->bbox();
+			//m_bbox = m_bbox.merged(curbox);
+
+			COBB obb = m_modelList[m_modelNum]->m_GOBB;
+			for (size_t i = 0; i < 8; i++)
+			{
+				fprintf(file_lh, "after cal: model %d ,vertex %d %.2lf %.2lf %.2lf \n ", m_modelNum, i, obb.vp[i][0], obb.vp[i][1], obb.vp[i][2]);
+			}
+
+
+			m_modelNum++;
+
+		
+
+			buildModelDislayList();
+			computeModelOBB();
+		}
+
+	}
+	//// set scene bbox
+	//for (int i = 1; i <= addModelNum; i++)
+	//{
+	//	Eigen::AlignedBox3d curbox = m_modelList[m_modelNum + i - 1]->bbox();
+	//	m_bbox = m_bbox.merged(curbox);
+	//}
+	//m_modelNum += addModelNum;
+
+	//buildModelDislayList();
+	//computeModelOBB();
+#endif
+
+#if 0
+		//-----新代码，先获取支撑平面的id，再在该id的支撑平面上取一个位置
+		int planeID = selectSuppPlaneByRandom();
+		newLocation = selectLocOnSuppPlaneByRandom(planeID);
+		//-------------------------
+		//newLocation = selectSuppLocationByRandom(); //原来的代码，直接取位置
+		//if (testAvailableForNewLocation(planeID,m_modelNum + i - 1, newLocation))
+		int count = 0;
+		while (1)
+		{
+			if (testAvailableForNewLocation(planeID, m_modelNum + i - 1, newLocation))
+			{
+				m_modelList[m_modelNum + i - 1]->TransformVertices(newLocation);//gengxin dingdian,zhi gengxin l 8 dingdian
+				// update
+				m_modelList[m_modelNum + i - 1]->updateOBB(2);
+				m_modelList[m_modelNum + i - 1]->updateCurrentLocation();
+				m_modelList[m_modelNum + i - 1]->buildSuppPlane();
+				addSuppPlanes(m_modelNum + i - 1);
+				break;
+			}
+			else if (count++<100)
+			{
+				//planeID = selectSuppPlaneByRandom();
+				newLocation = selectLocOnSuppPlaneByRandom(planeID);
+			}
+			else
+			{
+				break;
+			}
+
+		}
+		m_modelNameIdMap[modelName] = m_modelNum + i - 1;
+	}		
+#endif 
+		
+
+	fclose(file_lh);
+
+
 
 }
 
@@ -1254,6 +1476,78 @@ void CScene::collectSuppPlanes()
 			m_availablePlaneID++;
 		}
 	}
+}
+void readSuppLabels(QString filepath,std::vector<QString> &supp_lables) {
+	QFile supporterLabelsFile(filepath);
+	QTextStream ifs(&supporterLabelsFile);
+	if (!supporterLabelsFile.open(QIODevice::ReadOnly | QIODevice::Text))
+	{
+		std::cout << "Open failed." << endl;
+		return ;
+	}
+	QString lineStr;
+	while (!ifs.atEnd())
+	{
+		lineStr = ifs.readLine();
+		supp_lables.push_back(lineStr);
+	}
+	
+	supporterLabelsFile.close();
+
+}
+//重载函数，传任意一个不为0的参数进来，则表示要对支撑平面做筛选，只汇总label在supporter_labels.txt里的模型的支撑平面
+void CScene::collectSuppPlanes(int i) {
+	
+
+	if (m_suppPlanes.size() != 0)
+	{
+		return;
+	}
+
+	//m_sceneFilePath
+	std::vector<QString> supporter_labels;
+	if (i) {
+		readSuppLabels(m_sceneFilePath + "supporter_labels.txt", supporter_labels);
+	}
+
+
+	//根据suppoter_labels.txt 过滤汇总平面
+	for each (CModel *m in m_modelList)
+	{
+		std::vector<SuppPlane*> suppPlanes = m->getAllSuppPlanes();
+		if (supporter_labels.size()) {
+			bool match = 0;
+			for (int i = 0; i < supporter_labels.size(); i++) {
+				if (m->label().indexOf(supporter_labels[i], 0, Qt::CaseInsensitive)>=0){
+					match = 1;
+					break;
+				}
+			}
+			if (!match) {
+				continue;///
+			}
+		}
+		for (int i = 0; i < suppPlanes.size(); i++)
+		{
+			suppPlanes[i]->setInScenePlaneID(m_availablePlaneID);
+			m_suppPlanes[m_availablePlaneID] = suppPlanes[i];
+			m_availablePlaneID++;
+		}
+	}
+	//如果筛选后，没有汇总到支撑平面，则重新汇总所有的支撑平面。
+	if (m_suppPlanes.size() == 0) {
+		for each (CModel *m in m_modelList)
+		{
+			std::vector<SuppPlane*> suppPlanes = m->getAllSuppPlanes();
+			for (int i = 0; i < suppPlanes.size(); i++)
+			{
+				suppPlanes[i]->setInScenePlaneID(m_availablePlaneID);
+				m_suppPlanes[m_availablePlaneID] = suppPlanes[i];
+				m_availablePlaneID++;
+			}
+		}
+	}
+	
 }
 
 void CScene::addSuppPlanes(int mID)
@@ -1397,17 +1691,158 @@ MathLib::Vector3 CScene::selectSuppLocationByRandom(int mID)
 	return selectLocOnSuppPlaneByRandom(planeID);
 
 }
+/*
+将eigen::Matrix4d转换为MathLib::Matrix4d
+*/
+MathLib::Matrix4d matrix4dTranslate(const Eigen::Matrix4d &m) {
+	MathLib::Matrix4d matrix;
+
+	for (int i = 0; i < m.rows(); i++) {
+		for (int j = 0; j < m.cols(); j++) {
+			matrix.m[i][j] = m(i, j);
+		}
+	}
+
+	return matrix;
+}
 
 // need to do
 // test for collision at new location, no collision, return true
 // 大概的思路：把要摆放的这个物体的包围盒移动到新的位置，支撑这一物体的supporter上已有一些物体，
 // 然后测试新物体的包围盒与已有物体的包围盒有没有碰撞，如果没有，则说明这个位置可以放。
 // 可使用的函数提示： IntersectOBBOBB,void COBB::Transform(const MathLib::Matrix4d &m)
-// 参考void CModel::TransformVertices(const MathLib::Vector3 &newLocation)中由newlocation得到Transform矩阵的写法
+// 参考void CModel::TrancfsformVertices(const MathLib::Vector3 &newLocation)中由newlocation得到Transform矩阵的写法
 bool CScene::testAvailableForNewLocation(int mId, const MathLib::Vector3 &newLocation)
 {
-	return true;
+	CModel* currModel;
+	currModel = m_modelList[mId];
+	if (currModel == NULL) { return false; }
+	
+	// compute transform matrix
+	MathLib::Vector3 translationVec = newLocation - currModel->getCurrentLocation();
+	Eigen::Affine3d tempTransform(Eigen::Translation3d(Eigen::Vector3d(translationVec.x, translationVec.y, translationVec.z)));
+	Eigen::Matrix4d transMat = tempTransform.matrix();
+	//to get the obb
+	COBB tempCOBB = COBB(currModel->m_GOBB);//新建一个临时的COBB，将当前Model的COBB赋值给它
+	tempCOBB.Transform(matrix4dTranslate(transMat));//对临时的COBB根据转移矩阵，计算出一个新的包围盒
+	//用这个新的包围盒去和支撑物上的所有模型逐个进行碰撞检测(包括当前模型的原位置，因为newLocation是随机得到的，可能取在模型的原位置)
+	for (int i = 0; i < mId; i++){
+		
+		if (IntersectOBBOBB(tempCOBB, m_modelList[i]->m_GOBB)) {
+			return false;// 检测到碰撞，所以当前位置不能放置，
+		}
 
+	}
+	return true;
+}
+
+//fasle place cannot place
+bool CScene::testAvailableForNewLocation(int planeId, int mId, const MathLib::Vector3 &newLocation) {
+
+	std::map<int, std::vector<int>>::iterator iter = m_suppPlaneModelsMap.find(planeId);
+	if (iter != m_suppPlaneModelsMap.end()) {
+		//找到当前支撑平面的对应关系
+		std::vector<int>* models = &(iter->second);
+		int count_1 = models->size();
+		// compute transform matrix
+		CModel* currModel = m_modelList[mId];
+		COBB *currCOBB = &(currModel->m_GOBB);
+		for (size_t i = 0; i < 8; i++)
+		{
+			fprintf(file_lh, "before trans mode %d  vertex %d %.2lf %.2lf %.2lf \n ", mId, i, currCOBB->vp[i][0], currCOBB->vp[i][1], currCOBB->vp[i][2]);
+			//fprintf(file_lh, "after trans mode %d  vertex %d %.2lf %.2lf %.2lf \n ", mId, i, tempCOBB.vp[i][0], tempCOBB.vp[i][1], tempCOBB.vp[i][2]);
+		}
+
+		MathLib::Vector3 current_loc = currModel->getCurrentLocation();
+		MathLib::Vector3 translationVec = newLocation - currModel->getCurrentLocation();
+		Eigen::Affine3d tempTransform(Eigen::Translation3d(Eigen::Vector3d(translationVec.x, translationVec.y, translationVec.z)));
+		Eigen::Matrix4d transMat = tempTransform.matrix();
+		//to get the obb
+		//COBB tempCOBB = COBB(currModel->m_GOBB);//新建一个临时的COBB，将当前Model的COBB赋值给它
+
+		double tmp[16] = { 1, 0, 0, 0 ,   
+			0, 1, 0, 0,
+			0, 0, 1, 0 ,
+			translationVec[0], translationVec[1], translationVec[2], 1};
+		//double tmp[16] = {  ,, 0, 0, 1, , 0, 0, 0, 1 };
+		MathLib::Matrix4d trans = MathLib::Matrix4d(tmp);
+
+		//SetData(const MathLib::Vector3 &c, const std::vector<MathLib::Vector3> &a, const MathLib::Vector3 &s)
+
+		//MathLib::Vector3 cent_1=
+		COBB tempCOBB = COBB(currCOBB->cent, currCOBB->axis, currCOBB->size);
+		//tempCOBB.Transform(matrix4dTranslate(transMat));//对临时的COBB根据转移矩阵，计算出一个新的包围盒
+		tempCOBB.Transform(trans);
+		
+		fprintf(file_lh, "dis vec of mode %d %.2lf %.2lf %.2lf \n ", mId, translationVec[0], translationVec[1], translationVec[2]);
+
+		for (size_t i = 0; i < 8; i++)
+		{
+			//fprintf(file_lh, "before trans mode %d  vertex %d %.2lf %.2lf %.2lf \n ", mId, i, currCOBB->vp[i][0], currCOBB->vp[i][1], currCOBB->vp[i][2]);
+			fprintf(file_lh, "after trans mode %d  vertex %d %.2lf %.2lf %.2lf \n ", mId, i, tempCOBB.vp[i][0], tempCOBB.vp[i][1], tempCOBB.vp[i][2]);
+		}
+
+
+		
+		//fprintf(file_lh, "there are %d modles in plane %d\n", models->size(), planeId);
+		//for (size_t i = 0; i < models->size(); i++)
+		//{
+		//	CModel* temp = m_modelList[models->at(i)];
+		//	fprintf(file_lh, "lableName %s,ModeName %s\n", temp->label().toLatin1().data(), temp->getModeName().toLatin1().data());
+		//}
+		for (int i = 0; i < models->size(); i++) {
+			
+			int modelId = models->at(i);
+			if (modelId > m_modelList.size()) return false;			
+			fprintf(file_lh, "\t%s  compare to %s on plane %d\n", currModel->getModeName().toLatin1().data(), m_modelList[modelId]->getModeName().toLatin1().data(), planeId);
+
+			//if (mId == modelId){ 
+			//	continue; 
+			//}
+
+			
+
+			if (IntersectOBBOBB(tempCOBB, m_modelList[modelId]->m_GOBB)) {
+				return false;// 检测到碰撞，所以当前位置不能放置，
+			}
+		}
+		//models->insert(models->end(), mId);
+		models->push_back(mId);
+
+		///
+		//iter = m_suppPlaneModelsMap.find(planeId);
+		//models = &(iter->second);
+		//for (int i = 1; i < models->size(); i++) {
+
+		//	int modelId = models->at(i);
+		//	fprintf(file_lh, "before retturn ,model %d is in plane %d\n", modelId, planeId);
+		//	
+		//}
+
+		int count_2 = models->size();
+		
+		return true;
+	}
+	else {
+		std::vector<int> models;
+		//models.insert(models.begin(), mId);
+		models.push_back(mId);
+		m_suppPlaneModelsMap.insert(std::map<int, std::vector<int>>::value_type(planeId, models));
+		fprintf(file_lh, "mid %d is insert into plane %d,directly\n", mId, planeId);
+
+		/*std::vector<int>* models1;
+		iter = m_suppPlaneModelsMap.find(planeId);
+		models1 = &(iter->second);
+		for (int i = 0; i < models1->size(); i++) {
+
+			int modelId = models1->at(i);
+			fprintf(file_lh, "before retturn ,model %d is in plane %d\n", modelId, planeId);
+
+		}*/
+		return true;
+	}
+
+	return true;
 }
 
 

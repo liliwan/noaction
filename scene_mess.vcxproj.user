@@ -57,12 +57,12 @@
     <LocalDebuggerEnvironment>PATH=$(QTDIR)\bin%3b"$(QTDIR)\bin%3b$(PATH)</LocalDebuggerEnvironment>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <QTDIR>D:\Qt\Qt5.3.2\5.3\msvc2013_64_opengl\</QTDIR>
+    <QTDIR>H:\qt\Qt5.4.1\5.4\msvc2013_64_opengl</QTDIR>
     <LocalDebuggerEnvironment>PATH=$(QTDIR)\bin%3b"$(QTDIR)\bin%3b$(PATH)</LocalDebuggerEnvironment>
-    <LocalDebuggerCommand>C:\Users\lenovo\Desktop\StarlabPackage\starlab.exe</LocalDebuggerCommand>
+    <LocalDebuggerCommand>C:\Users\Administrator\Desktop\StarlabPackage\starlab.exe</LocalDebuggerCommand>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
-    <LocalDebuggerCommandArguments>C:\Users\lenovo\Desktop\StarlabPackage\empty.obj</LocalDebuggerCommandArguments>
-    <LocalDebuggerWorkingDirectory>C:\Users\lenovo\Desktop\StarlabPackage\</LocalDebuggerWorkingDirectory>
+    <LocalDebuggerCommandArguments>C:\Users\Administrator\Desktop\StarlabPackage\empty.obj</LocalDebuggerCommandArguments>
+    <LocalDebuggerWorkingDirectory>C:\Users\Administrator\Desktop\StarlabPackage\</LocalDebuggerWorkingDirectory>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <QTDIR>D:\Qt\Qt5.3.2\5.3\msvc2013_64_opengl\</QTDIR>
@@ -114,7 +114,7 @@
     <LocalDebuggerEnvironment>PATH=$(QTDIR)\bin%3b"$(QTDIR)\bin%3b$(PATH)</LocalDebuggerEnvironment>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <QTDIR>D:\Qt\Qt5.3.2\5.3\msvc2013_64_opengl\</QTDIR>
+    <QTDIR>H:\qt\Qt5.4.1\5.4\msvc2013_64_opengl</QTDIR>
     <LocalDebuggerEnvironment>PATH=$(QTDIR)\bin%3b"$(QTDIR)\bin%3b$(PATH)</LocalDebuggerEnvironment>
     <LocalDebuggerCommand>C:\Users\lenovo\Desktop\StarlabPackageRelease\starlab.exe</LocalDebuggerCommand>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>

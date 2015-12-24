@@ -127,10 +127,14 @@ public:
 	bool IsInsideWithTrans(const MathLib::Vector3 &p) const;
 	void ClosestPointWithTrans(const MathLib::Vector3 &p, MathLib::Vector3 &cp) const;
 
-	MathLib::Vector3 GetTransformedCenter();
+	MathLib::Vector3 GetTransformedCenter() ;
 	std::vector<MathLib::Vector3> GetTransformedVertices();
 	std::vector<MathLib::Vector3> GetTransformedVertices(const Eigen::Matrix4d &transMat);
 
+	/**
+	* Get axisX , axisY, axisZ projection radius distance on axis
+	*/
+	double getProjectionRadius(const MathLib::Vector3 &p) const;
 public:
 	MathLib::Vector3					cent;		// center
 	std::vector<MathLib::Vector3>	axis;		// 3 principal axes

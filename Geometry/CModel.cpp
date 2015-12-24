@@ -25,6 +25,7 @@ CModel::CModel()
 	m_isFixed = false;
 
 	m_suppParentID = -1;
+	m_modeName = "";
 }
 
 CModel::~CModel()
@@ -398,8 +399,11 @@ void CModel::drawOBB()
 
 	updateCurrentLocation();
 	glColorQt(QColor(200, 40, 40));
-	float r = 2 * PointRadius3D;
+	float r = 4 * PointRadius3D;
 	renderSphere(m_currentLocation[0], m_currentLocation[1], m_currentLocation[2], r);
+	renderSphere(m_GOBB.vp[1][0], m_GOBB.vp[1][1], m_GOBB.vp[1][2], r / 2);
+	glColorQt(QColor(0, 200, 40));
+	renderSphere(m_GOBB.vp[5][0], m_GOBB.vp[5][1], m_GOBB.vp[5][2], r / 2);
 }
 
 bool CModel::IsSimilar(CModel *pOther, const MathLib::Vector3 &Upright)

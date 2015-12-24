@@ -100,6 +100,7 @@ public:
 	//--wll
 	void arrangeSceneByRandom(const QString filename); 
 	void collectSuppPlanes(); 
+	void collectSuppPlanes(int i);//overload function to add supporter labels
 	void addSuppPlanes(int mID);
 	int selectSuppPlaneByRandom();
 	int selectSuppPlaneByRandom(int mID);
@@ -108,6 +109,7 @@ public:
 	MathLib::Vector3 selectSuppLocationByRandom(); // in a scene
 	MathLib::Vector3 selectSuppLocationByRandom(int mId); // on a specified object
 	bool testAvailableForNewLocation(int mId, const MathLib::Vector3 &newLocation);
+	bool testAvailableForNewLocation(int planeId, int mId, const MathLib::Vector3 &newLocation);//overload function
 	//----------------------------
 
 	// select interaction
@@ -176,7 +178,7 @@ private:
 	// wll adds
 	int m_availablePlaneID;
 	std::map<int, SuppPlane*> m_suppPlanes; // all support planes in a scene
-
+	std::map<int, std::vector<int>> m_suppPlaneModelsMap; // 支撑平面和其上面模型的对应关系
 	QString m_arrangeFileName; 
 	QString m_arrangeFilePath; 
 	// double m_seed1, m_seed2, m_seed3;

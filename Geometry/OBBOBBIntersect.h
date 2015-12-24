@@ -2,4 +2,4 @@
 
 class COBB;
 
-bool IntersectOBBOBB(const COBB &obb1, const COBB &obb2);
+bool IntersectOBBOBB( COBB &obb1,  COBB &obb2);

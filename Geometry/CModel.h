@@ -32,7 +32,7 @@ public:
 	QString label() { return m_label; };
 
 	void setFilePath(const QString &filepath) { m_filePath = filepath; };
-
+	QString getFilePath(){ return m_filePath; }
 	void setID(int i) { m_id = i; };
 	int getID() { return m_id; };
 
@@ -129,7 +129,9 @@ public:
 	int m_suppParentID; // object ID supporting this object
 	std::vector<int> m_suppChindrenList; // object IDs supported by this object
 	int m_supportLevel;
-
+	QString m_modeName;
+	void setModeName(QString str){ m_modeName = str; }
+	QString getModeName(){ return m_modeName; }
 public:
 	CAABB m_AABB;
 	COBB m_GOBB;
