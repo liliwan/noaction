@@ -99,17 +99,20 @@ public:
 	void setCenterModelID(int id) { m_centerModelID = id; };
 	//--wll
 	void arrangeSceneByRandom(const QString filename); 
+	void arrangeSceneByOrder(const QString filename);
 	void collectSuppPlanes(); 
 	void collectSuppPlanes(int i);//overload function to add supporter labels
 	void addSuppPlanes(int mID);
 	int selectSuppPlaneByRandom();
 	int selectSuppPlaneByRandom(int mID);
 	MathLib::Vector3 selectLocOnSuppPlaneByRandom(int planeID); // on a specified support plane
-
+	MathLib::Vector3 selectLocOnSuppPlaneByOrder(const MathLib::Vector3 &firstloc, CModel *Model1, CModel *Model2, int fx); // on a specified support plane by order
 	MathLib::Vector3 selectSuppLocationByRandom(); // in a scene
 	MathLib::Vector3 selectSuppLocationByRandom(int mId); // on a specified object
 	bool testAvailableForNewLocation(int mId, const MathLib::Vector3 &newLocation);
 	bool testAvailableForNewLocation(int planeId, int mId, const MathLib::Vector3 &newLocation);//overload function
+	bool testAvailableForNewLocation(const MathLib::Vector3 &newLocation, int planeId);	
+	double GetCross(double p1x, double p1y, double p2x, double p2y, double px, double py);
 	//----------------------------
 
 	// select interaction

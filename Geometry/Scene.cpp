@@ -1144,16 +1144,327 @@ int CScene::doSymmetryConnection(ConnType ct, bool bCompSCG)
 }
 */
 
-void CScene::arrangeSceneByRandom(const QString filename)
+//void CScene::arrangeSceneByOrder(const QString filename)
+//{
+//#if 0
+//	QFile inFile(filename);
+//	QTextStream ifs(&inFile);na
+//
+//	if (!inFile.open(QIODevice::ReadOnly | QIODevice::Text)) return;
+//
+//	QFileInfo arrangeFileInfo(inFile.fileName());
+//
+//	m_arrangeFileName = arrangeFileInfo.baseName();
+//	m_arrangeFilePath = arrangeFileInfo.absolutePath() + "/";
+//
+//	int addModelNum;
+//	double modelMetric;
+//	QString addmodelLabel;
+//
+//
+//	ifs >> modelMetric;
+//
+//	ifs >> addmodelLabel;
+//
+//	ifs >> addModelNum;
+//	inFile.close();
+//
+//	// add models
+//	QString modelName;
+//
+//	// available location
+//
+//
+//	//m_seed1 = (double)time(NULL);
+//	//m_seed2 = m_seed1 + 1000;
+//	//m_seed3 = m_seed1 + 2000;
+//
+//	for (int i = 1; i <= addModelNum; i++)
+//	{
+//		QString s;
+//		s = QString::number(i, 10);
+//
+//		if (i <= 10)
+//		{
+//			//modelName = "book_0" + s;
+//			modelName = addmodelLabel + "_0" + s;
+//		}
+//		else
+//		{
+//			//modelName = "book_" + s;
+//			modelName = addmodelLabel + "_" + s;
+//		}
+//
+//		CModel *newModel = new CModel();
+//
+//		newModel->loadModel(m_arrangeFilePath + "/" + modelName + ".obj", m_modelMetric);
+//		newModel->setLabel(addmodelLabel);
+//		newModel->setFilePath(m_arrangeFilePath);
+//		newModel->setID(m_modelNum + i - 1);
+//		newModel->setSceneUpRightVec(m_uprightVec);
+//
+//		m_modelList[m_modelNum + i - 1] = newModel; //.push_back(newModel);
+//		m_modelNameIdMap[modelName] = i;
+//
+//		m_modelList[m_modelNum + i - 1]->computeOBB(2);
+//		m_modelList[m_modelNum + i - 1]->updateCurrentLocation();
+//
+//		// where to place
+//		MathLib::Vector3 newLocation(0, 0, 0);
+//		//-----新代码，先获取支撑平面的id，再在该id的支撑平面上取一个位置
+//		int planeID = selectSuppPlaneByRandom();
+//		newLocation = selectLocOnSuppPlaneByRandom(planeID);
+//		//-------------------------
+//		//newLocation = selectSuppLocationByRandom(); //原来的代码，直接取位置
+//
+//		/*if (testAvailableForNewLocation(m_modelNum + i - 1, newLocation))*/
+//		if (testAvailableForNewLocation(planeID, m_modelNum + i - 1, newLocation))
+//		{
+//			m_modelList[m_modelNum + i - 1]->TransformVertices(newLocation);//gengxin dingdian,zhi gengxin l 8 dingdian
+//
+//			// update
+//			m_modelList[m_modelNum + i - 1]->updateOBB(2);
+//			m_modelList[m_modelNum + i - 1]->updateCurrentLocation();
+//			m_modelList[m_modelNum + i - 1]->buildSuppPlane();
+//			addSuppPlanes(m_modelNum + i - 1);
+//		}
+//
+//
+//		m_modelNameIdMap[modelName] = m_modelNum + i - 1;
+//	}
+//
+//	// set scene bbox
+//	for (int i = 1; i <= addModelNum; i++)
+//	{
+//		Eigen::AlignedBox3d curbox = m_modelList[m_modelNum + i - 1]->bbox();
+//		m_bbox = m_bbox.merged(curbox);
+//	}
+//	m_modelNum += addModelNum;
+//
+//	buildModelDislayList();
+//	computeModelOBB();
+//
+//#else
+//	QFile inFile(filename);
+//	QTextStream ifs(&inFile);
+//
+//	if (!inFile.open(QIODevice::ReadOnly | QIODevice::Text)) return;
+//
+//	QFileInfo arrangeFileInfo(inFile.fileName());
+//
+//	m_arrangeFileName = arrangeFileInfo.baseName();
+//	m_arrangeFilePath = arrangeFileInfo.absolutePath() + "/";
+//
+//	int addModelNum;
+//	double modelMetric;
+//	QString addmodelLabel;
+//
+//
+//	ifs >> modelMetric;//0.0254
+//
+//	ifs >> addmodelLabel;//book
+//
+//	ifs >> addModelNum;//7
+//	inFile.close();
+//
+//	// add models
+//	QString modelName;
+//
+//	// available location
+//
+//
+//	for (int i = 1; i <= addModelNum; i++)
+//	{
+//		QString s;
+//		s = QString::number(i, 10);//=i
+//		
+//		if (i <= 10)
+//		{
+//			//modelName = "book_0" + s;
+//			modelName = addmodelLabel + "_0" + s;
+//		}
+//		else
+//		{
+//			//modelName = "book_" + s;
+//			modelName = addmodelLabel + "_" + s;
+//		}
+//
+//		CModel *newModel = new CModel();
+//
+//		//newModel->loadModel(m_arrangeFilePath + "/" + modelName + ".obj", m_modelMetric);
+//		newModel->loadModel(m_arrangeFilePath + "/" + modelName + ".obj", modelMetric);
+//		//newModel->setLabel(addmodelLabel);
+//		newModel->setLabel(modelName);
+//		newModel->setModeName(modelName);
+//		newModel->setFilePath(m_arrangeFilePath);
+//		newModel->setID(m_modelNum);
+//		newModel->setSceneUpRightVec(m_uprightVec);
+//
+//		m_modelList[m_modelNum] = newModel; //.push_back(newModel);
+//		m_modelNameIdMap[modelName] = i;
+//
+//		m_modelList[m_modelNum ]->computeOBB(2);
+//		m_modelList[m_modelNum ]->updateCurrentLocation();
+//
+//		// where to place
+//		MathLib::Vector3 newLocation(0, 0, 0);
+//
+//
+//		/*if (testAvailableForNewLocation(m_modelNum + i - 1, newLocation))*/
+//		//int planeID = selectSuppPlaneByRandom();
+//	    int planeID =0;
+//	    newLocation = selectLocOnSuppPlaneByRandom(planeID);
+//		//-------------------------
+//		//newLocation = selectSuppLocationByRandom(); //原来的代码，直接取位置
+//		/*if (testAvailableForNewLocation(m_modelNum + i - 1, newLocation))*/
+//		int count = 0;
+//		boolean bfind = false;
+//		fprintf(file_lh, "initial try to addMode %s into plane %d\n", modelName.toLatin1().data(),planeID);
+//		while (1)
+//		{
+//			fprintf(file_lh, "New Loc mode %d %.3lf %.3lf %.3lf\n ", m_modelNum,newLocation[0], newLocation[1], newLocation[2]);
+//			if (testAvailableForNewLocation(planeID, m_modelNum , newLocation))
+//			{
+//				fprintf(file_lh, "by calculate, add model %d into plane %d\n", m_modelNum, planeID);				
+//				m_modelList[m_modelNum ]->TransformVertices(newLocation);//gengxin dingdian,zhi gengxin l 8 dingdian
+//				// update
+//				m_modelList[m_modelNum ]->updateOBB(2);
+//				//m_modelList[m_modelNum]->updateOBB(3);
+//				m_modelList[m_modelNum ]->updateCurrentLocation();
+//				//m_modelList[m_modelNum ]->buildSuppPlane();
+//				//addSuppPlanes(m_modelNum );
+//				bfind = true;
+//
+//	
+//
+//
+//				//std::map<int, std::vector<int>>::iterator iter = m_suppPlaneModelsMap.find(planeId);
+//				//std::vector<int>* models1;
+//				//iter = m_suppPlaneModelsMap.find(planeId);
+//				//models1 = &(iter->second);
+//
+//
+//
+//				//std::map<int, std::vector<int>>::iterator iter = m_suppPlaneModelsMap.find(planeID);
+//				//if (iter != m_suppPlaneModelsMap.end()) {
+//				//	//找到当前支撑平面的对应关系
+//				//	std::vector<int>* models = &(iter->second);
+//				//	for (size_t i = 0; i < models->size(); i++)
+//				//	{
+//				//		CModel *tmp = m_modelList[models->at(i)];
+//				//		fprintf(file_lh, "after calculate,  model %s is in plane %d\n", tmp->getModeName().toLatin1().data(), planeID);
+//				//	}
+//				//}
+//				//
+//				break;
+//			}
+//			else if (count<100)
+//			{
+//				planeID = selectSuppPlaneByRandom();
+//				//planeID = 0;
+//				newLocation = selectLocOnSuppPlaneByRandom(planeID);
+//			}
+//			else
+//			{
+//				bfind = false;
+//				break;
+//			}
+//
+//		}
+//
+//		//if (testAvailableForNewLocation(planeID, m_modelNum , newLocation))
+//		//{
+//		//	m_modelList[m_modelNum ]->TransformVertices(newLocation);//gengxin dingdian,zhi gengxin l 8 dingdian
+//
+//		//	// update
+//		//	m_modelList[m_modelNum ]->updateOBB(2);
+//		//	m_modelList[m_modelNum ]->updateCurrentLocation();
+//		//	m_modelList[m_modelNum ]->buildSuppPlane();
+//		//	addSuppPlanes(m_modelNum );
+//		//}
+//		if (bfind)
+//		{
+//			//m_modelNameIdMap[modelName] = m_modelNum;
+//			//Eigen::AlignedBox3d curbox = m_modelList[m_modelNum]->bbox();
+//			//m_bbox = m_bbox.merged(curbox);
+//
+//			COBB obb = m_modelList[m_modelNum]->m_GOBB;
+//			for (size_t i = 0; i < 8; i++)
+//			{
+//				fprintf(file_lh, "after cal: model %d ,vertex %d %.2lf %.2lf %.2lf \n ", m_modelNum, i, obb.vp[i][0], obb.vp[i][1], obb.vp[i][2]);
+//			}
+//
+//
+//			m_modelNum++;//在放了一个模型后，modelList里面的模型数量+1
+//
+//		
+//
+//			buildModelDislayList();
+//			computeModelOBB();
+//		}
+//
+//	}
+//	//// set scene bbox
+//	//for (int i = 1; i <= addModelNum; i++)
+//	//{
+//	//	Eigen::AlignedBox3d curbox = m_modelList[m_modelNum + i - 1]->bbox();
+//	//	m_bbox = m_bbox.merged(curbox);
+//	//}
+//	//m_modelNum += addModelNum;
+//
+//	//buildModelDislayList();
+//	//computeModelOBB();
+//#endif
+//
+//#if 0
+//		//-----新代码，先获取支撑平面的id，再在该id的支撑平面上取一个位置
+//		int planeID = selectSuppPlaneByRandom();
+//		newLocation = selectLocOnSuppPlaneByRandom(planeID);
+//		//-------------------------
+//		//newLocation = selectSuppLocationByRandom(); //原来的代码，直接取位置
+//		//if (testAvailableForNewLocation(planeID,m_modelNum + i - 1, newLocation))
+//		int count = 0;
+//		while (1)
+//		{
+//			if (testAvailableForNewLocation(planeID, m_modelNum + i - 1, newLocation))
+//			{
+//				m_modelList[m_modelNum + i - 1]->TransformVertices(newLocation);//gengxin dingdian,zhi gengxin l 8 dingdian
+//				// update
+//				m_modelList[m_modelNum + i - 1]->updateOBB(2);
+//				m_modelList[m_modelNum + i - 1]->updateCurrentLocation();
+//				m_modelList[m_modelNum + i - 1]->buildSuppPlane();
+//				addSuppPlanes(m_modelNum + i - 1);
+//				break;
+//			}
+//			else if (count++<100)
+//			{
+//				//planeID = selectSuppPlaneByRandom();
+//				newLocation = selectLocOnSuppPlaneByRandom(planeID);
+//			}
+//			else
+//			{
+//				break;
+//			}
+//
+//		}
+//		m_modelNameIdMap[modelName] = m_modelNum + i - 1;
+//	}		
+//#endif 
+//		
+//
+//	fclose(file_lh);
+//
+//
+//
+//}
+void CScene::arrangeSceneByOrder(const QString filename)
 {
-#if 0
 	QFile inFile(filename);
 	QTextStream ifs(&inFile);
 
 	if (!inFile.open(QIODevice::ReadOnly | QIODevice::Text)) return;
 
 	QFileInfo arrangeFileInfo(inFile.fileName());
-
 	m_arrangeFileName = arrangeFileInfo.baseName();
 	m_arrangeFilePath = arrangeFileInfo.absolutePath() + "/";
 
@@ -1162,134 +1473,36 @@ void CScene::arrangeSceneByRandom(const QString filename)
 	QString addmodelLabel;
 
 
-	ifs >> modelMetric;
+	ifs >> modelMetric;  //0.0254
 
-	ifs >> addmodelLabel;
+	ifs >> addmodelLabel; //book
 
-	ifs >> addModelNum;
+	ifs >> addModelNum;  //7
 	inFile.close();
 
-	// add models
+	// add models 
 	QString modelName;
 
-	// available location
-
-
-	//m_seed1 = (double)time(NULL);
-	//m_seed2 = m_seed1 + 1000;
-	//m_seed3 = m_seed1 + 2000;
-
+	MathLib::Vector3 newLocation(0, 0, 0); //
+	MathLib::Vector3 firstLocation(0, 0, 0);//存放第一本书的地面中心坐标
+	int flag = 0;  //用于判断是否需要改变方向的标志,0代表不改变方向
+	int planeID = selectSuppPlaneByRandom();
 	for (int i = 1; i <= addModelNum; i++)
 	{
 		QString s;
-		s = QString::number(i, 10);
-
+		s = QString::number(i, 10);//  s=i
+	//对每一个模型命名，小于10 例如book_01 ,大于10 例如book_12
 		if (i <= 10)
 		{
-			//modelName = "book_0" + s;
-			modelName = addmodelLabel + "_0" + s;
+			modelName = addmodelLabel + "_0" + s;//addmodelLabel=book
 		}
 		else
 		{
-			//modelName = "book_" + s;
 			modelName = addmodelLabel + "_" + s;
 		}
 
-		CModel *newModel = new CModel();
 
-		newModel->loadModel(m_arrangeFilePath + "/" + modelName + ".obj", m_modelMetric);
-		newModel->setLabel(addmodelLabel);
-		newModel->setFilePath(m_arrangeFilePath);
-		newModel->setID(m_modelNum + i - 1);
-		newModel->setSceneUpRightVec(m_uprightVec);
-
-		m_modelList[m_modelNum + i - 1] = newModel; //.push_back(newModel);
-		m_modelNameIdMap[modelName] = i;
-
-		m_modelList[m_modelNum + i - 1]->computeOBB(2);
-		m_modelList[m_modelNum + i - 1]->updateCurrentLocation();
-
-		// where to place
-		MathLib::Vector3 newLocation(0, 0, 0);
-		//-----新代码，先获取支撑平面的id，再在该id的支撑平面上取一个位置
-		int planeID = selectSuppPlaneByRandom();
-		newLocation = selectLocOnSuppPlaneByRandom(planeID);
-		//-------------------------
-		//newLocation = selectSuppLocationByRandom(); //原来的代码，直接取位置
-
-		/*if (testAvailableForNewLocation(m_modelNum + i - 1, newLocation))*/
-		if (testAvailableForNewLocation(planeID, m_modelNum + i - 1, newLocation))
-		{
-			m_modelList[m_modelNum + i - 1]->TransformVertices(newLocation);//gengxin dingdian,zhi gengxin l 8 dingdian
-
-			// update
-			m_modelList[m_modelNum + i - 1]->updateOBB(2);
-			m_modelList[m_modelNum + i - 1]->updateCurrentLocation();
-			m_modelList[m_modelNum + i - 1]->buildSuppPlane();
-			addSuppPlanes(m_modelNum + i - 1);
-		}
-
-
-		m_modelNameIdMap[modelName] = m_modelNum + i - 1;
-	}
-
-	// set scene bbox
-	for (int i = 1; i <= addModelNum; i++)
-	{
-		Eigen::AlignedBox3d curbox = m_modelList[m_modelNum + i - 1]->bbox();
-		m_bbox = m_bbox.merged(curbox);
-	}
-	m_modelNum += addModelNum;
-
-	buildModelDislayList();
-	computeModelOBB();
-
-#else
-	QFile inFile(filename);
-	QTextStream ifs(&inFile);
-
-	if (!inFile.open(QIODevice::ReadOnly | QIODevice::Text)) return;
-
-	QFileInfo arrangeFileInfo(inFile.fileName());
-
-	m_arrangeFileName = arrangeFileInfo.baseName();
-	m_arrangeFilePath = arrangeFileInfo.absolutePath() + "/";
-
-	int addModelNum;
-	double modelMetric;
-	QString addmodelLabel;
-
-
-	ifs >> modelMetric;
-
-	ifs >> addmodelLabel;
-
-	ifs >> addModelNum;
-	inFile.close();
-
-	// add models
-	QString modelName;
-
-	// available location
-
-
-	for (int i = 1; i <= addModelNum; i++)
-	{
-		QString s;
-		s = QString::number(i, 10);
-		
-		if (i <= 10)
-		{
-			//modelName = "book_0" + s;
-			modelName = addmodelLabel + "_0" + s;
-		}
-		else
-		{
-			//modelName = "book_" + s;
-			modelName = addmodelLabel + "_" + s;
-		}
-
-		CModel *newModel = new CModel();
+		CModel *newModel = new CModel();//声明一个Cmodel类型的newModel，Cmodel是模型的类名，比如book
 
 		//newModel->loadModel(m_arrangeFilePath + "/" + modelName + ".obj", m_modelMetric);
 		newModel->loadModel(m_arrangeFilePath + "/" + modelName + ".obj", modelMetric);
@@ -1300,51 +1513,49 @@ void CScene::arrangeSceneByRandom(const QString filename)
 		newModel->setID(m_modelNum);
 		newModel->setSceneUpRightVec(m_uprightVec);
 
-		m_modelList[m_modelNum] = newModel; //.push_back(newModel);
+		m_modelList[m_modelNum] = newModel; //.push_back(newModel);将这个newModel放进数组里
 		m_modelNameIdMap[modelName] = i;
 
-		m_modelList[m_modelNum ]->computeOBB(2);
-		m_modelList[m_modelNum ]->updateCurrentLocation();
+		m_modelList[m_modelNum]->computeOBB(2);//计算OBB
+		m_modelList[m_modelNum]->updateCurrentLocation();//更新
 
-		// where to place
-		MathLib::Vector3 newLocation(0, 0, 0);
-
-
-		/*if (testAvailableForNewLocation(m_modelNum + i - 1, newLocation))*/
-		//int planeID = selectSuppPlaneByRandom();
-	int planeID =0;
-		newLocation = selectLocOnSuppPlaneByRandom(planeID);
+		if (i == 1){
+			newLocation = selectLocOnSuppPlaneByRandom(planeID);
+			firstLocation = newLocation;//用于保存第一本书位置坐标
+		}
+		else{
+			if (flag %2 == 0){
+				newLocation = selectLocOnSuppPlaneByOrder(newLocation, m_modelList[i - 1], m_modelList[i], 1);//按顺序摆放的位置
+			}
+			else if (flag % 2 == 1){
+				newLocation = selectLocOnSuppPlaneByOrder(newLocation, m_modelList[i - 1], m_modelList[i], 2);
+			}			
+		}
 		//-------------------------
 		//newLocation = selectSuppLocationByRandom(); //原来的代码，直接取位置
 		/*if (testAvailableForNewLocation(m_modelNum + i - 1, newLocation))*/
-		int count = 0;
-		boolean bfind = false;
-		fprintf(file_lh, "initial try to addMode %s into plane %d\n", modelName.toLatin1().data(),planeID);
+		boolean bfind = false;//用于判断是否找到存放书的位置，初始值为false
+		//lastLocation = newLocation;
+		//fprintf(file_lh, "initial try to addMode %s into plane %d\n", modelName.toLatin1().data(), planeID);
 		while (1)
 		{
-			fprintf(file_lh, "New Loc mode %d %.3lf %.3lf %.3lf\n ", m_modelNum,newLocation[0], newLocation[1], newLocation[2]);
-			if (testAvailableForNewLocation(planeID, m_modelNum , newLocation))
+			fprintf(file_lh, "New Loc mode %d %.3lf %.3lf %.3lf\n ", m_modelNum, newLocation[0], newLocation[1], newLocation[2]);
+			if (testAvailableForNewLocation(newLocation, planeID))
 			{
-				fprintf(file_lh, "by calculate, add model %d into plane %d\n", m_modelNum, planeID);				
-				m_modelList[m_modelNum ]->TransformVertices(newLocation);//gengxin dingdian,zhi gengxin l 8 dingdian
+				fprintf(file_lh, "by calculate, add model %d into plane %d\n", m_modelNum, planeID);
+				//把书放到newLocaltion位置
+				m_modelList[m_modelNum]->TransformVertices(newLocation);//gengxin dingdian,zhi gengxin l 8 dingdian
 				// update
-				m_modelList[m_modelNum ]->updateOBB(2);
+				m_modelList[m_modelNum]->updateOBB(2);
 				//m_modelList[m_modelNum]->updateOBB(3);
-				m_modelList[m_modelNum ]->updateCurrentLocation();
+				m_modelList[m_modelNum]->updateCurrentLocation();
 				//m_modelList[m_modelNum ]->buildSuppPlane();
 				//addSuppPlanes(m_modelNum );
 				bfind = true;
-
-	
-
-
 				//std::map<int, std::vector<int>>::iterator iter = m_suppPlaneModelsMap.find(planeId);
 				//std::vector<int>* models1;
 				//iter = m_suppPlaneModelsMap.find(planeId);
 				//models1 = &(iter->second);
-
-
-
 				//std::map<int, std::vector<int>>::iterator iter = m_suppPlaneModelsMap.find(planeID);
 				//if (iter != m_suppPlaneModelsMap.end()) {
 				//	//找到当前支撑平面的对应关系
@@ -1358,11 +1569,25 @@ void CScene::arrangeSceneByRandom(const QString filename)
 				//
 				break;
 			}
-			else if (count<100)
+			else if (1)
 			{
-				planeID = selectSuppPlaneByRandom();
-				//planeID = 0;
-				newLocation = selectLocOnSuppPlaneByRandom(planeID);
+				flag++;
+				if (flag == 1){
+					newLocation = selectLocOnSuppPlaneByOrder(firstLocation, m_modelList[1], m_modelList[i], 2);
+				}
+				else if (flag == 2){					
+					while (1){
+						int planeID = selectSuppPlaneByRandom();//随机平面
+						newLocation = selectLocOnSuppPlaneByRandom(planeID);//随机位置
+						if (testAvailableForNewLocation(m_modelNum + i - 1, newLocation)){
+							break;
+						}
+					}
+					
+					firstLocation = newLocation;//保存当前第一本书位置
+					//break;
+				}
+				
 			}
 			else
 			{
@@ -1395,9 +1620,9 @@ void CScene::arrangeSceneByRandom(const QString filename)
 			}
 
 
-			m_modelNum++;
+			m_modelNum++;//在放了一个模型后，modelList里面的模型数量+1
 
-		
+
 
 			buildModelDislayList();
 			computeModelOBB();
@@ -1414,49 +1639,15 @@ void CScene::arrangeSceneByRandom(const QString filename)
 
 	//buildModelDislayList();
 	//computeModelOBB();
-#endif
 
-#if 0
-		//-----新代码，先获取支撑平面的id，再在该id的支撑平面上取一个位置
-		int planeID = selectSuppPlaneByRandom();
-		newLocation = selectLocOnSuppPlaneByRandom(planeID);
-		//-------------------------
-		//newLocation = selectSuppLocationByRandom(); //原来的代码，直接取位置
-		//if (testAvailableForNewLocation(planeID,m_modelNum + i - 1, newLocation))
-		int count = 0;
-		while (1)
-		{
-			if (testAvailableForNewLocation(planeID, m_modelNum + i - 1, newLocation))
-			{
-				m_modelList[m_modelNum + i - 1]->TransformVertices(newLocation);//gengxin dingdian,zhi gengxin l 8 dingdian
-				// update
-				m_modelList[m_modelNum + i - 1]->updateOBB(2);
-				m_modelList[m_modelNum + i - 1]->updateCurrentLocation();
-				m_modelList[m_modelNum + i - 1]->buildSuppPlane();
-				addSuppPlanes(m_modelNum + i - 1);
-				break;
-			}
-			else if (count++<100)
-			{
-				//planeID = selectSuppPlaneByRandom();
-				newLocation = selectLocOnSuppPlaneByRandom(planeID);
-			}
-			else
-			{
-				break;
-			}
 
-		}
-		m_modelNameIdMap[modelName] = m_modelNum + i - 1;
-	}		
-#endif 
-		
-
-	fclose(file_lh);
-
+fclose(file_lh);
 
 
 }
+
+
+
 
 void CScene::collectSuppPlanes()
 {
@@ -1679,7 +1870,21 @@ MathLib::Vector3 CScene::selectLocOnSuppPlaneByRandom(int planeID)
 	v1 = corners[0] + v * frand2;
 	v = corners[2] - corners[1];
 	v.normalize();
-	p = v1 + v*frand3;
+p = v1 + v*frand3;
+	return p;
+}
+MathLib::Vector3 CScene::selectLocOnSuppPlaneByOrder(const MathLib::Vector3 &firstloc, CModel *Model1, CModel *Model2, int fx)
+{
+	MathLib::Vector3 p;
+	const double juli = (Model1->getOBBSize()[1]+Model2->getOBBSize()[1])/2;	
+	p[0]=firstloc[0];
+	p[2] = firstloc[2];
+	if (fx == 1){
+		p[1] = firstloc[1] + juli;
+	}
+	else if(fx == 2){
+		p[1] = firstloc[1] - juli;
+	}	
 	return p;
 }
 
@@ -1735,8 +1940,6 @@ bool CScene::testAvailableForNewLocation(int mId, const MathLib::Vector3 &newLoc
 	}
 	return true;
 }
-
-//fasle place cannot place
 bool CScene::testAvailableForNewLocation(int planeId, int mId, const MathLib::Vector3 &newLocation) {
 
 	std::map<int, std::vector<int>>::iterator iter = m_suppPlaneModelsMap.find(planeId);
@@ -1846,7 +2049,25 @@ bool CScene::testAvailableForNewLocation(int planeId, int mId, const MathLib::Ve
 }
 
 
+//检测函数，判断位置点是否在支撑平面内
+bool CScene::testAvailableForNewLocation(const MathLib::Vector3 &newLocation, int planeID){
+	MathLib::Vector3 corner1 = m_suppPlanes[planeID]->GetCorner(0);//planeID的第一个角坐标
+	MathLib::Vector3 corner2 = m_suppPlanes[planeID]->GetCorner(1);//planeID的第2个角坐标
+	MathLib::Vector3 corner3 = m_suppPlanes[planeID]->GetCorner(2);//planeID的第3个角坐标
+	MathLib::Vector3 corner4 = m_suppPlanes[planeID]->GetCorner(3);//planeID的第4个角坐标
+	double GetCross(double p1x, double p1y, double p2x, double p2y, double px, double py);
 
+	double G1 = GetCross(corner1[0], corner1[1], corner2[0], corner2[1], newLocation[0], newLocation[1]);
+	double G2 = GetCross(corner3[0], corner3[1], corner4[0], corner4[1], newLocation[0], newLocation[1]);
+	double G3 = GetCross(corner2[0], corner2[1], corner3[0], corner3[1], newLocation[0], newLocation[1]);
+	double G4 = GetCross(corner4[0], corner4[1], corner1[0], corner1[1], newLocation[0], newLocation[1]);
+	bool b = G1*G2 >= 0 && G3*G4 >= 0;
+		return b;
+}
+double GetCross(double p1x, double p1y, double p2x, double p2y, double px, double py)
+{
+	return (p2x - p1x) * (py - p1y) - (px - p1x) * (p2y - p1y);//这代表第三个点与第一个点连线的斜率乘以第一个点和第二个点连线的斜率
+}                                
 
 
 

@@ -123,6 +123,8 @@ public:
 	void TransformVertices(const MathLib::Vector3 &newLocation); // wll
 	//void RotateVertices();
 
+	void updateTopLocation();//更新包围盒的顶部中心
+
 
 
 	// arrangement feature

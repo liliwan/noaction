@@ -945,6 +945,14 @@ void CModel::updateCurrentLocation()
 	m_currentLocation = m_GOBB.cent - m_GOBB.axis[2] * 0.5*m_GOBB.size[2];
 }
 
+
+
+//得到包围盒的顶部中心
+void CModel::updateTopLocation()
+{
+	
+}
+
 void CModel::TransformVertices(const MathLib::Vector3 &newLocation)
 {
 	Surface_mesh::Vertex_property<Surface_mesh::Vector3> points = m_mesh->vertex_property<Surface_mesh::Vector3>("v:point");
